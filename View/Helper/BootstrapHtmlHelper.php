@@ -18,7 +18,14 @@ App::uses('HtmlHelper', 'View/Helper');
  * @name BootstrapHtml
  */
 class BootstrapHtmlHelper extends HtmlHelper {
-
+	
+/**
+ * Icon variable
+ * 
+ * @var string
+ */
+	private $icon = 'icon';
+	
 /**
  * Displays an h1 tag wrapped in a div with the page-header class
  *
