@@ -1,4 +1,6 @@
 CakeTwitterBootstrap
 ====================
 
-Some helpers of for twiter bootstrap front end framework.
+CakePHP Helpers for using twiter bootstrap front end framework.
+
+It also uses chosen.
