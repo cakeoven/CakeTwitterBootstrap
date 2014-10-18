@@ -341,7 +341,8 @@ class BootstrapHtmlHelper extends HtmlHelper {
  * @return string
  */
 	public function icon($type, $text = '', $options = array()) {
-		$class = "icon icon-$type";
+		$icon = $this->icon;
+		$class = "$icon $icon-$type";
 
 		if (isset($options['class']) && !empty($class)) {
 			$options['class'] = $class . ' ' . $options['class'];
