@@ -8,7 +8,7 @@
  *
  * @copyright Copyright 2014, George Mponos
  * @author George Mponos, <gmponos@gmail.com>
- * @link URL
+ * @link http://github.com/gmponos/CakeTwitterBootstrap
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @todo The functions for the horizontal elements must be removed and the
  * horizontal elements must be created with an option
@@ -23,6 +23,10 @@ App::uses('FormHelper', 'View/Helper');
  */
 class BootstrapFormHelper extends FormHelper {
 
+/**
+ *
+ * @var type
+ */
 	protected $horizontal = false;
 
 /**
@@ -163,7 +167,7 @@ class BootstrapFormHelper extends FormHelper {
 	}
 
 	public function combineInput($options = array()) {
-		
+
 	}
 
 /**
