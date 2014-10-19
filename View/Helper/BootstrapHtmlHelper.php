@@ -6,8 +6,12 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright Copyright 2014, George Mponos <gmponos@gmail.com>
+ * @copyright Copyright 2014, George Mponos
+ * @author George Mponos, <gmponos@gmail.com>
+ * @link http://github.com/gmponos/CakeTwitterBootstrap
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @todo The functions for the horizontal elements must be removed and the
+ * horizontal elements must be created with an option
  */
 
 App::uses('HtmlHelper', 'View/Helper');
