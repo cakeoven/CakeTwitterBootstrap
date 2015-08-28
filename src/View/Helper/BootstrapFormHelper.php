@@ -13,7 +13,7 @@
  * @todo The functions for the horizontal elements must be removed
  * horizontal elements must be created with an option
  */
-App::uses('FormHelper', 'View/Helper');
+App::uses('FormHelper', 'src/Helper');
 
 /**
  * Bootstrap Form Helper

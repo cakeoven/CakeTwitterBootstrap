@@ -14,7 +14,7 @@
  * horizontal elements must be created with an option
  */
 
-App::uses('HtmlHelper', 'View/Helper');
+App::uses('HtmlHelper', 'src/Helper');
 
 /**
  * BootstrapHtml Helper
