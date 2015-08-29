@@ -1,7 +1,7 @@
 {
-  "name": "cakephp/caketwitterbootstrap",
+  "name": "cakephp/cakephp_bootstrap",
   "description": "A CakePHP plugin with helpers for Twitter bootstrap",
-  "type": "plugin",
+  "type": "cakephp-plugin",
   "license": "MIT",
   "authors": [
     {
@@ -17,8 +17,11 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.4.16",
-    "cakephp/cakephp": "^3.0",
-    "cakephp/cakephp-codesniffer": "2.*"
+    "cakephp/cakephp": "^3.0"
+  },
+  "require-dev": {
+    "cakephp/cakephp-codesniffer": "2.*",
+    "phpunit/phpunit": "4.1.*"
   },
   "prefer-stable": true
 }
