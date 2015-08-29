@@ -14,7 +14,9 @@
  * horizontal elements must be created with an option
  */
 
-App::uses('HtmlHelper', 'src/Helper');
+namespace Cake\TwitterBootstrap;
+
+use Cake\View\Helper\HtmlHelper;
 
 /**
  * BootstrapHtml Helper
@@ -25,16 +27,16 @@ class BootstrapHtmlHelper extends HtmlHelper
 {
 
     /**
-     * Icon variable
-     *
+     * Icon prefix
      * @var string
      */
-    private $icon = 'icon';
+    private $iconPrefix = 'fa';
 
     /**
      * Displays an h1 tag wrapped in a div with the page-header class
      *
      * @param string $title
+     * @param string $h
      * @return string
      */
     public function pageHeader($title, $h)
@@ -42,7 +44,7 @@ class BootstrapHtmlHelper extends HtmlHelper
         if (!$this->_isHeader($h)) {
             return false;
         }
-        return parent::tag("div", "<$h>$title</$h>", array("class" => "page-header"));
+        return parent::tag("div", "<$h>$title</$h>", ["class" => "page-header"]);
     }
 
     /**
@@ -67,8 +69,8 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function modalHeader($title, $h = 'h4')
     {
-        $modalTitle = parent::tag($h, $title, array('class' => 'modal-title'));
-        return parent::tag("div", $modalTitle, array("class" => 'modal-header'));
+        $modalTitle = parent::tag($h, $title, ['class' => 'modal-title']);
+        return parent::tag("div", $modalTitle, ["class" => 'modal-header']);
     }
 
     /**
@@ -80,22 +82,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $ddOpts
      * @return string
      */
-    public function descriptionList($data, $options = array(), $dtOpts = array(), $ddOpts = array())
+    public function descriptionList($data, array $options = [], array $dtOpts = [], array $ddOpts = [])
     {
-        if (empty($data) || !is_array($data)) {
-            return false;
-        }
-        $out = array();
 
-        $dtOptions = parent::_parseAttributes($dtOpts);
-        $ddOptions = parent::_parseAttributes($ddOpts);
-
-        foreach ($data as $descr => $value) {
-            $out[] = sprintf($this->_tags['dt'], $dtOptions, $descr);
-            $out[] = sprintf($this->_tags['dd'], $ddOptions, $value);
-        }
-        $dl = sprintf($this->_tags['dl'], parent::_parseAttributes($options), implode("\n", $out));
-        return $dl;
     }
 
     /**
@@ -106,9 +95,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $options
      * @return string
      */
-    public function well($text, $size = null, $options = array())
+    public function well($text, $size = null, array $options = [])
     {
-        $options = array('class' => 'well');
+        $options = array_merge(['class' => 'well'], $options);
 
         if (!empty($size)) {
             switch ($size) {
@@ -130,12 +119,11 @@ class BootstrapHtmlHelper extends HtmlHelper
      *
      * @param string $content
      * @param array $options
-     * @return type
+     * @return string
      */
-    public function lead($content, $options = array())
+    public function lead($content, array $options = [])
     {
-        $defaults = array('class' => 'lead');
-        $options = array_merge($defaults, $options);
+        $options = array_merge(['class' => 'lead'], $options);
         return parent::tag('p', $content, $options);
     }
 
@@ -149,17 +137,17 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $options
      * @return string
      */
-    public function label($text, $contextual = '', $options = array())
+    public function label($text, $contextual = '', array $options = [])
     {
         $class = $prefix = 'label';
-        $contextuals = array(
+        $contextuals = [
             'default',
             'primary',
             'success',
             'warning',
             'danger',
             'info',
-        );
+        ];
 
         if (isset($options['icon'])) {
             $content = $this->_icon($text, $options);
@@ -197,10 +185,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param string $title The content to be wrapped by <a> tags.
      * @param string|array $url Cake-relative URL or array of URL parameters, or external URL (starts with http://)
      * @param array $options Array of options and HTML attributes.
-     * @param string $confirmMessage JavaScript confirmation message.
      * @return string An `<a />` element.
      */
-    public function link($title, $url = null, $options = array(), $confirmMessage = false)
+    public function link($title, $url = null, array $options = [])
     {
         if (empty($url)) {
             $url = $title;
@@ -210,7 +197,7 @@ class BootstrapHtmlHelper extends HtmlHelper
             $options['escape'] = false;
             unset($options['icon']);
         }
-        return parent::link($title, $url, $options, $confirmMessage);
+        return parent::link($title, $url, $options);
     }
 
     /**
@@ -221,7 +208,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $options
      * @return string
      */
-    public function listGroupItemLink($url, $title, $options = array())
+    public function listGroupItemLink($url, $title, array $options = [])
     {
         $class = 'list-group-item';
         if (isset($options['active']) && $options['active']) {
@@ -242,15 +229,15 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $options
      * @return string
      */
-    public function listGroupItem($title, $options = array())
+    public function listGroupItem($title, array $options = [])
     {
         $class = 'list-group-item';
         if (isset($options['active']) && $options['active']) {
             $class = "$class active";
         }
-        $defaults = array(
+        $defaults = [
             'class' => $class,
-        );
+        ];
         $text = $this->_generateListGroupText($title);
         $options = array_merge($defaults, $options);
         return $this->div('list-group-item', $text, $options);
@@ -291,7 +278,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $options
      * @return string
      */
-    public function button($text, $options = array())
+    public function button($text, array $options = [])
     {
         if (isset($options['icon'])) {
             $text = $this->_icon($text, $options);
@@ -310,7 +297,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array $options
      * @return string
      */
-    public function badge($text, $options = array())
+    public function badge($text, array $options = [])
     {
         $defaults = array_merge(array('class' => 'badge'), $options);
         return parent::tag('span', $text, $defaults);
@@ -321,13 +308,14 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param string $text
      * @param string $target
      * @param array $options
+     * @return string
      */
-    public function tab($text, $target, $options = array())
+    public function tab($text, $target, array $options = [])
     {
-        $defaults = array(
+        $defaults = [
             'data-toggle' => 'tab',
-        );
-        $liOptions = array();
+        ];
+        $liOptions = [];
         if (isset($options['active'])) {
             $liOptions['class'] = 'active';
             unset($options['active']);
@@ -356,12 +344,13 @@ class BootstrapHtmlHelper extends HtmlHelper
      *
      * @example `<i class="icon icon-search"></i> Text`
      * @param string $type
+     * @param string $text
      * @param array $options
      * @return string
      */
-    public function icon($type, $text = '', $options = array())
+    public function icon($type, $text = '', array $options = [])
     {
-        $icon = $this->icon;
+        $icon = $this->iconPrefix;
         $class = "$icon $icon-$type";
 
         if (isset($options['class']) && !empty($class)) {
@@ -399,7 +388,9 @@ class BootstrapHtmlHelper extends HtmlHelper
             if (empty($options)) {
                 return $title;
             }
-            $options = array('class' => "icon icon-$options");
+            $icon = $this->iconPrefix;
+            $class = "$icon $icon-$options";
+            $options = ['class' => $class];
         }
         $tag = parent::tag('i', '', $options);
         return trim($tag . ' ' . $title);

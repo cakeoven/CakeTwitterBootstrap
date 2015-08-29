@@ -1,0 +1,24 @@
+{
+  "name": "cakephp/caketwitterbootstrap",
+  "description": "A CakePHP plugin with helpers for Twitter bootstrap",
+  "type": "plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "gbonos",
+      "email": "gmponos@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Cake\\TwitterBootstrap\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.16",
+    "cakephp/cakephp": "^3.0",
+    "cakephp/cakephp-codesniffer": "2.*"
+  },
+  "prefer-stable": true
+}
