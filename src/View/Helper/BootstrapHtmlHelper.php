@@ -14,7 +14,7 @@
  * horizontal elements must be created with an option
  */
 
-namespace Cake\TwitterBootstrap;
+namespace CakeBootstrap;
 
 use Cake\View\Helper\HtmlHelper;
 

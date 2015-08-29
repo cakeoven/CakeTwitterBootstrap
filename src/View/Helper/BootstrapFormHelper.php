@@ -13,7 +13,7 @@
  * @todo      The functions for the horizontal elements must be removed
  * horizontal elements must be created with an option
  */
-namespace Cake\TwitterBootstrap;
+namespace CakeBootstrap;
 
 use Cake\View\Helper\FormHelper;
 
