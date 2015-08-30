@@ -13,7 +13,7 @@
  * @todo      The functions for the horizontal elements must be removed
  * horizontal elements must be created with an option
  */
-namespace CakeBootstrap;
+namespace CakeBootstrap\View\Helper;
 
 use Cake\View\Helper\FormHelper;
 
@@ -38,7 +38,7 @@ class BootstrapFormHelper extends FormHelper
      * Also removed null array for options existing in $_inputDefaults.
      *
      * @param  string $fieldName
-     * @param  array  $options   Description
+     * @param  array $options Description
      * @return array
      */
     protected function _parseOptions($fieldName, $options)
@@ -56,78 +56,35 @@ class BootstrapFormHelper extends FormHelper
      * Starts a new form with input defaults.
      *
      * @param  string $model
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
-    public function create($model = null, $options = array())
-    {
-        if (isset($options['horizontal']) && $options['horizonta']) {
-            $this->horizontal = true;
-        }
-        $defaults = [
-            'inputDefaults' => [
-                'div' => [
-                    'class' => 'form-group'
-                ],
-                'label' => [
-                    'class' => 'control-label',
-                ],
-                'class' => 'form-control',
-                'error' => [
-                    'attributes' => [
-                        'wrap' => 'p',
-                        'class' => 'text-danger'
-                    ]
-                ],
-            ],
-            'class' => null,
-            'role' => 'form',
-        ];
-
-        if (!empty($options['inputDefaults'])) {
-            $options = array_merge_recursive($defaults['inputDefaults'], $options['inputDefaults']);
-        } else {
-            $options = array_merge_recursive($defaults, $options);
-        }
-        return parent::create($model, $options);
-    }
-
-    /**
-     * Starts a new form with input defaults for horizontal forms
-     *
-     * @param  string $model
-     * @param  array  $options
-     * @return string
-     */
-    public function createHorizontal($model = null, $options = array())
+    public function create($model = null, array $options = [])
     {
         $defaults = [
-            'inputDefaults' => [
-                'div' => [
-                    'class' => 'form-group'
-                ],
-                'label' => [
-                    'class' => 'col-lg-3 control-label'
-                ],
-                'between' => '<div class="col-lg-9">',
-                'after' => '</div>',
-                'class' => 'form-control',
-                'error' => [
-                    'attributes' => [
-                        'wrap' => 'p',
-                        'class' => 'text-danger'
-                    ]
-                ],
-            ],
-            'class' => 'form-horizontal',
-            'role' => 'form',
+//            'inputDefaults' => [
+//                'div' => [
+//                    'class' => 'form-group'
+//                ],
+//                'label' => [
+//                    'class' => 'control-label',
+//                ],
+//                'class' => 'form-control',
+//                'error' => [
+//                    'attributes' => [
+//                        'wrap' => 'p',
+//                        'class' => 'text-danger'
+//                    ]
+//                ],
+//            ],
+//            'class' => null,
+//            'role' => 'form',
         ];
-
-        if (!empty($options['inputDefaults'])) {
-            $options = array_merge($defaults['inputDefaults'], $options['inputDefaults']);
-        } else {
-            $options = array_merge($defaults, $options);
-        }
+        $this->templates([
+            'button' => '<button {{attrs}}>{{text}}</button>',
+            'datetimeContainer' => '<div class="form-group">{{content}}</div>',
+            'dateWidget' => '<input type="text" name="{{name}}" {{attrs}} class="form-control"/>'
+        ]);
         return parent::create($model, $options);
     }
 
@@ -135,17 +92,19 @@ class BootstrapFormHelper extends FormHelper
      * Returns a formatted LABEL element for HTML FORMs. Will automatically generate
      * a `for` attribute if one is not provided.
      *
-     * @param  string       $fieldName This should be "Modelname.fieldname"
-     * @param  string       $text      Text that will appear in the label field. If $text is left undefined the text will be inflected from the fieldName. $text is left undefined the text will be inflected from the fieldName.
+     * @param  string $fieldName This should be "Modelname.fieldname"
+     * @param  string $text Text that will appear in the label field. If $text is left undefined the text will be inflected from the fieldName. $text is left undefined the text will be inflected from the fieldName.
      *   $text is left undefined the text will be inflected from the
      *   fieldName.
-     * @param  array|string $options   An array of HTML attributes, or a string, to be used as a class name.
+     * @param  array|string $options An array of HTML attributes, or a string, to be used as a class name.
      * @return string The formatted LABEL element
      */
-    public function label($fieldName = null, $text = null, $options = array())
+    public function label($fieldName = null, $text = null, array $options = [])
     {
-        if (empty($options)) {
-            $options = 'control-label';
+        if (isset($options['class'])) {
+            $options['class'] = $options['class'] . ' ' . 'control-label';
+        } else {
+            $options['class'] = 'control-label';
         }
         return parent::label($fieldName, $text, $options);
     }
@@ -154,10 +113,10 @@ class BootstrapFormHelper extends FormHelper
      * input method
      *
      * @param  string $fieldName
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
-    public function input($fieldName, $options = array())
+    public function input($fieldName, array $options = [])
     {
         //** we need to make the input combine with <span class="input-group-addon">@</span>
         if (isset($options['icon'])) {
@@ -181,10 +140,10 @@ class BootstrapFormHelper extends FormHelper
      * file method
      *
      * @param  string $fieldName
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
-    public function file($fieldName, $options = array())
+    public function file($fieldName, array $options = [])
     {
         $defaults = [
             'div' => [
@@ -199,10 +158,10 @@ class BootstrapFormHelper extends FormHelper
      * datepicker method
      *
      * @param  string $fieldName
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
-    public function datepicker($fieldName, $options = array())
+    public function datepicker($fieldName, array $options = [])
     {
         $defaults = [
             'class' => 'form-control form-control-datepicker',
@@ -216,7 +175,7 @@ class BootstrapFormHelper extends FormHelper
      * Timepicker method
      *
      * @param  string $fieldName
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
     public function timepicker($fieldName, array $options = [])
@@ -241,7 +200,7 @@ class BootstrapFormHelper extends FormHelper
      * Chosen
      *
      * @param  string $fieldName
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
     public function chosen($fieldName, array $options = [])
@@ -266,10 +225,10 @@ class BootstrapFormHelper extends FormHelper
      * Creates a reset button for a form
      *
      * @param  string $title
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
-    public function btnReset($title = '', $options = array())
+    public function btnReset($title = '', array $options = [])
     {
         $title = empty($title) ? __('Reset') : $title;
         $defaults = [
@@ -277,21 +236,20 @@ class BootstrapFormHelper extends FormHelper
             'type' => 'reset',
         ];
         $options = array_merge($defaults, $options);
-        return parent::button($title, $defaults);
+        return parent::button($title, $options);
     }
 
     /**
      * Creates a submit button for a form
      *
      * @param  string $title
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
     public function btnSubmit($title = '', array $options = [])
     {
         $title = empty($title) ? __('Submit') : $title;
-        $options = array_merge(
-            [
+        $options = array_merge([
             'class' => 'btn btn-success btn-sm',
             'type' => 'submit',
             ], $options
@@ -303,7 +261,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a cancel button. Used to dismiss modals
      *
      * @param  string $title
-     * @param  array  $options
+     * @param  array $options
      * @return string
      */
     public function btnCancel($title = '', array $options = [])
@@ -311,9 +269,9 @@ class BootstrapFormHelper extends FormHelper
         $title = empty($title) ? __('Cancel') : $title;
         $options = array_merge(
             [
-            'class' => 'btn btn-danger btn-sm',
-            'type' => 'reset',
-            'data-dismiss' => 'modal'
+                'class' => 'btn btn-danger btn-sm',
+                'type' => 'reset',
+                'data-dismiss' => 'modal'
             ], $options
         );
         return parent::button($title, $options);
@@ -323,11 +281,12 @@ class BootstrapFormHelper extends FormHelper
      * Add divs and classes necessary for bootstrap
      * to end form.
      *
-     * @param  array $options
+     * @param  array $secureAttributes
      * @return string
      */
-    public function end($options = null)
+    public function end(array $secureAttributes = [])
     {
+        $options = $secureAttributes;
         if (!empty($options)) {
             if (!is_array($options)) {
                 $options = ['label' => $options];

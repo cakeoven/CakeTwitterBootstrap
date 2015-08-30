@@ -14,7 +14,7 @@
  * horizontal elements must be created with an option
  */
 
-namespace CakeBootstrap;
+namespace CakeBootstrap\View\Helper;
 
 use Cake\View\Helper\HtmlHelper;
 
