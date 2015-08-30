@@ -1,0 +1,13 @@
+{
+  "name": "Medico",
+  "description": "Medical",
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "*",
+    "font-awesome": "*"
+  },
+  "authors": [
+    "George Mponos <gmponos@gmail.com>"
+  ],
+  "license": "MIT"
+}
