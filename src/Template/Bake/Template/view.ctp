@@ -148,22 +148,20 @@ foreach ($relations as $alias => $details):
 <% foreach ($details['fields'] as $field): %>
             <th><?= __('<%= Inflector::humanize($field) %>') ?></th>
 <% endforeach; %>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($<%= $singularVar %>-><%= $details['property'] %> as $<%= $otherSingularVar %>): ?>
         <tr>
             <%- foreach ($details['fields'] as $field): %>
             <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
             <%- endforeach; %>
-
             <%- $otherPk = "\${$otherSingularVar}->{$details['primaryKey'][0]}"; %>
-            <td class="actions">
+            <td>
                 <?= $this->Html->link(__('View'), ['controller' => '<%= $details['controller'] %>', 'action' => 'view', <%= $otherPk %>]) %>
                 <?= $this->Html->link(__('Edit'), ['controller' => '<%= $details['controller'] %>', 'action' => 'edit', <%= $otherPk %>]) %>
                 <?= $this->Form->postLink(__('Delete'), ['controller' => '<%= $details['controller'] %>', 'action' => 'delete', <%= $otherPk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $otherPk %>)]) %>
             </td>
         </tr>
-
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
