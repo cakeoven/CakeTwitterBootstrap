@@ -1,10 +1,11 @@
 {
-  "name": "Medico",
-  "description": "Medical",
+  "name": "CakeBootstrap",
+  "description": "CakeBootstrap Helpers for CakePHP 3",
   "dependencies": {
-    "jquery": "*",
     "bootstrap": "*",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "chosen": "*",
+    "bootstrap-chosen": "master"
   },
   "authors": [
     "George Mponos <gmponos@gmail.com>"
