@@ -22,24 +22,26 @@ return !in_array($schema->columnType($field), ['binary', 'text']);
 %>
 <div class="row">
     <div class="col-lg-2 col-md-3">
-        <h3><?= __('Actions') ?></h3>
-        <ul class="side-nav">
-            <li><?= $this->Html->link(__('New <%= $singularHumanName %>'), ['action' => 'add']) ?></li>
-            <%
-            $done = [];
-            foreach ($associations as $type => $data):
-                foreach ($data as $alias => $details):
-                    if (!empty($details['navLink']) && $details['controller'] !== $this->name && !in_array($details['controller'], $done)):
-            %>
-            <li><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?></li>
-            <li><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?></li>
-            <%
-                        $done[] = $details['controller'];
-                    endif;
+        <div class="panel panel-default">
+            <div class="panel-heading"><?= __('Actions') ?></div>
+            <ul class="list-group">
+                <li class="list-group-item"><?= $this->Html->link(__('New <%= $singularHumanName %>'), ['action' => 'add']) ?></li>
+                <%
+                $done = [];
+                foreach ($associations as $type => $data):
+                    foreach ($data as $alias => $details):
+                        if (!empty($details['navLink']) && $details['controller'] !== $this->name && !in_array($details['controller'], $done)):
+                %>
+                <li class="list-group-item"><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?></li>
+                <li class="list-group-item"><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?></li>
+                <%
+                            $done[] = $details['controller'];
+                        endif;
+                    endforeach;
                 endforeach;
-            endforeach;
-            %>
-        </ul>
+                %>
+            </ul>
+        </div>
     </div>
     <div class="col-lg-10 col-md-9">
         <table class="table table-hover table-striped table-bordered small">
@@ -94,12 +96,8 @@ return !in_array($schema->columnType($field), ['binary', 'text']);
             </tbody>
         </table>
         <div class="paginator">
-            <ul class="pagination">
-                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next(__('next') . ' >') ?>
-            </ul>
-            <p><?= $this->Paginator->counter() ?></p>
+            <?= $this->element('CakeBootstrap.pagination') ?>
+            <?= $this->element('CakeBootstrap.paging') ?>
         </div>
     </div>
 </div>

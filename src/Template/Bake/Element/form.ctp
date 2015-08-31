@@ -21,34 +21,36 @@ $fields = collection($fields)
 %>
 <div class="row">
     <div class="col-lg-2 col-md-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="list-group">
-<% if (strpos($action, 'add') === false): %>
-        <li class="list-group-item"><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $<%= $singularVar %>-><%= $primaryKey[0] %>],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $<%= $singularVar %>-><%= $primaryKey[0] %>)]
-            )
-        ?></li>
-<% endif; %>
-        <li class="list-group-item"><?= $this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index']) ?></li>
-<%
-        $done = [];
-        foreach ($associations as $type => $data) {
-            foreach ($data as $alias => $details) {
-                if ($details['controller'] !== $this->name && !in_array($details['controller'], $done)) {
-%>
-        <li class="list-group-item"><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) %></li>
-        <li class="list-group-item"><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) %></li>
-<%
-                    $done[] = $details['controller'];
+        <div class="panel panel-default">
+            <div class="panel-heading"><?= __('Actions') ?></div>
+            <ul class="list-group">
+            <% if (strpos($action, 'add') === false): %>
+                <li class="list-group-item"><?= $this->Form->postLink(
+                        __('Delete'),
+                        ['action' => 'delete', $<%= $singularVar %>-><%= $primaryKey[0] %>],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $<%= $singularVar %>-><%= $primaryKey[0] %>)]
+                    )
+                ?></li>
+            <% endif; %>
+                <li class="list-group-item"><?= $this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index']) ?></li>
+            <%
+                $done = [];
+                foreach ($associations as $type => $data) {
+                    foreach ($data as $alias => $details) {
+                        if ($details['controller'] !== $this->name && !in_array($details['controller'], $done)) {
+            %>
+                <li class="list-group-item"><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) %></li>
+                <li class="list-group-item"><?= $this->Html->link(__('New <%= $this->_singularHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) %></li>
+            <%
+                            $done[] = $details['controller'];
+                        }
+                    }
                 }
-            }
-        }
-%>
-    </ul>
-</div>
-<div class="<%= $pluralVar %> form col-lg-10 col-md-9">
+            %>
+            </ul>
+        </div>
+    </div>
+    <div class="<%= $pluralVar %> form col-lg-10 col-md-9">
     <?= $this->Form->create($<%= $singularVar %>) ?>
     <fieldset>
         <legend><?= __('<%= Inflector::humanize($action) %> <%= $singularHumanName %>') ?></legend>
@@ -93,8 +95,8 @@ $fields = collection($fields)
         }
 %>
         ?>
-    </fieldset>
-    <?= $this->Form->btnSubmit() ?>
-    <?= $this->Form->end() ?>
-</ul>
+        </fieldset>
+        <?= $this->Form->btnSubmit() ?>
+        <?= $this->Form->end() ?>
+    </div>
 </div>
