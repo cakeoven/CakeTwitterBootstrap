@@ -1,0 +1,14 @@
+{
+  "name": "CakeBootstrap",
+  "description": "CakeBootstrap Helpers for CakePHP 3",
+  "dependencies": {
+    "bootstrap": "*",
+    "font-awesome": "*",
+    "chosen": "*",
+    "bootstrap-chosen": "master"
+  },
+  "authors": [
+    "George Mponos <gmponos@gmail.com>"
+  ],
+  "license": "MIT"
+}
