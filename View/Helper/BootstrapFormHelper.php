@@ -7,10 +7,10 @@
  * Redistributions of files must retain the above copyright notice.
  *
  * @copyright Copyright 2014, George Mponos
- * @author George Mponos, <gmponos@gmail.com>
- * @link http://github.com/gmponos/CakeTwitterBootstrap
- * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
- * @todo The functions for the horizontal elements must be removed
+ * @author    George Mponos, <gmponos@gmail.com>
+ * @link      http://github.com/gmponos/CakeTwitterBootstrap
+ * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @todo      The functions for the horizontal elements must be removed
  * horizontal elements must be created with an option
  */
 App::uses('FormHelper', 'View/Helper');
@@ -155,6 +155,12 @@ class BootstrapFormHelper extends FormHelper
      */
     public function input($fieldName, $options = array())
     {
+        $defaults = [
+            'class' => 'form-control',
+            'label' => [
+                'class' => 'control-label'
+            ]
+        ];
         //** we need to make the input combine with <span class="input-group-addon">@</span>
         if (isset($options['icon'])) {
             $icon = $this->Html->icon($options['icon']);
