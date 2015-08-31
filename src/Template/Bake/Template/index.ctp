@@ -89,7 +89,12 @@ return !in_array($schema->columnType($field), ['binary', 'text']);
                 <td>
                     <?= $this->Html->link(__('View'), ['action' => 'view', <%= $pk %>], ['icon' => 'search']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>], ['icon' => 'pencil']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], 
+                        [
+                            'icon' => 'times',
+                            'confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)
+                        ])
+                    ?>
                 </td>
             </tr>
             <?php endforeach; ?>
