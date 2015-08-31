@@ -56,8 +56,8 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function panelHeader($title, $h = 'h1')
     {
-        $panelTitle = parent::tag($h, $title, array('class' => 'panel-title'));
-        return parent::tag("div", $panelTitle, array('class' => 'panel-heading'));
+        $panelTitle = parent::tag($h, $title, ['class' => 'panel-title']);
+        return parent::tag("div", $panelTitle, ['class' => 'panel-heading']);
     }
 
     /**

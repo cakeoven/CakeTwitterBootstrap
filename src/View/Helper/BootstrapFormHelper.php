@@ -16,6 +16,7 @@
 namespace CakeBootstrap\View\Helper;
 
 use Cake\View\Helper\FormHelper;
+use Cake\Utility\Inflector;
 
 /**
  * Bootstrap Form Helper
@@ -78,12 +79,13 @@ class BootstrapFormHelper extends FormHelper
 //                ],
 //            ],
 //            'class' => null,
-//            'role' => 'form',
+            'role' => 'form',
         ];
+        $options = array_merge($defaults, $options);
         $this->templates([
-            'button' => '<button {{attrs}}>{{text}}</button>',
             'datetimeContainer' => '<div class="form-group">{{content}}</div>',
-            'dateWidget' => '<input type="text" name="{{name}}" {{attrs}} class="form-control"/>'
+            'dateWidget' => '<input type="text" name="{{name}}" {{attrs}} class="form-control"/>',
+            'inputContainer' => '<div class="form-group {{type}} {{required}}">{{content}}</div>',
         ]);
         return parent::create($model, $options);
     }
@@ -101,9 +103,7 @@ class BootstrapFormHelper extends FormHelper
      */
     public function label($fieldName = null, $text = null, array $options = [])
     {
-        if (isset($options['class'])) {
-            $options['class'] = $options['class'] . ' ' . 'control-label';
-        } else {
+        if (!isset($options['class'])) {
             $options['class'] = 'control-label';
         }
         return parent::label($fieldName, $text, $options);
@@ -118,20 +118,15 @@ class BootstrapFormHelper extends FormHelper
      */
     public function input($fieldName, array $options = [])
     {
-        //** we need to make the input combine with <span class="input-group-addon">@</span>
-        if (isset($options['icon'])) {
-            $icon = $this->Html->icon($options['icon']);
+        $options = [
+            'class' => 'form-control',
+            'label' => [
+                'class' => 'control-label'
+            ]
+        ];
 
-            $between = '<div class="input-group">' . '<span class="input-group-addon">' . $icon . '</span>';
-
-            $after = '</div>';
-            $options = [
-                'between' => $between,
-                'after' => $after,
-            ];
-        }
         if (!isset($options['placeholder'])) {
-            //$options['placeholder'] = __(Inflector::humanize(Inflector::underscore($fieldName)));
+            $options['placeholder'] = __(Inflector::humanize(Inflector::underscore($fieldName)));
         }
         return parent::input($fieldName, $options);
     }
@@ -252,7 +247,7 @@ class BootstrapFormHelper extends FormHelper
         $options = array_merge([
             'class' => 'btn btn-success btn-sm',
             'type' => 'submit',
-            ], $options
+        ], $options
         );
         return parent::button($title, $options);
     }
