@@ -65,7 +65,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
                 foreach ($associations as $type => $data) {
                     foreach ($data as $alias => $details) {
                         if ($details['controller'] !== $this->name && !in_array($details['controller'], $done)) {
-            %>
+                    %>
                     <li class="list-group-item"><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?> </li>
                     <li class="list-group-item"><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?> </li>
                     <%
@@ -141,7 +141,7 @@ foreach ($relations as $alias => $details):
     %>
 <div class="related row">
     <div class="col-lg-12">
-    <h4 class="subheader"><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
+    <h4><?= __('Related <%= $otherPluralHumanName %>') ?></h4>
     <?php if (!empty($<%= $singularVar %>-><%= $details['property'] %>)): ?>
         <table class="table table-hover table-striped table-bordered small">
         <tr>
