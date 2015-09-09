@@ -76,6 +76,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
             %>
                 </ul>
             </div>
+        </div>
     <div class="<%= $pluralVar %> col-lg-10 col-md-9">
         <h4><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h4>
         <div class="row">
