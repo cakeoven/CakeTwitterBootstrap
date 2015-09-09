@@ -60,7 +60,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
                     <li class="list-group-item"><?= $this->Form->postLink(__('Delete <%= $singularHumanName %>'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)]) ?> </li>
                     <li class="list-group-item"><?= $this->Html->link(__('List <%= $pluralHumanName %>'), ['action' => 'index']) ?> </li>
                     <li class="list-group-item"><?= $this->Html->link(__('New <%= $singularHumanName %>'), ['action' => 'add']) ?> </li>
-            <%
+                    <%
                 $done = [];
                 foreach ($associations as $type => $data) {
                     foreach ($data as $alias => $details) {
@@ -68,7 +68,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
             %>
                     <li class="list-group-item"><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?> </li>
                     <li class="list-group-item"><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?> </li>
-            <%
+                    <%
                             $done[] = $details['controller'];
                         }
                     }
@@ -77,43 +77,43 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
                 </ul>
             </div>
     <div class="<%= $pluralVar %> col-lg-10 col-md-9">
-        <h2><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h2>
+        <h4><?= h($<%= $singularVar %>-><%= $displayField %>) ?></h4>
         <div class="row">
     <% if ($groupedFields['string']) : %>
-            <div class="large-5 columns strings">
+            <div class="col-lg-6">
     <% foreach ($groupedFields['string'] as $field) : %>
     <% if (isset($associationFields[$field])) :
                 $details = $associationFields[$field];
     %>
-                <h6 class="subheader"><?= __('<%= Inflector::humanize($details['property']) %>') ?></h6>
+                <h6 class="small"><?= __('<%= Inflector::humanize($details['property']) %>') ?></h6>
                 <p><?= $<%= $singularVar %>->has('<%= $details['property'] %>') ? $this->Html->link($<%= $singularVar %>-><%= $details['property'] %>-><%= $details['displayField'] %>, ['controller' => '<%= $details['controller'] %>', 'action' => 'view', $<%= $singularVar %>-><%= $details['property'] %>-><%= $details['primaryKey'][0] %>]) : '' ?></p>
     <% else : %>
-                <h6 class="subheader"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
+                <h6 class="small"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
                 <p><?= h($<%= $singularVar %>-><%= $field %>) ?></p>
     <% endif; %>
     <% endforeach; %>
             </div>
     <% endif; %>
     <% if ($groupedFields['number']) : %>
-            <div class="large-2 columns numbers end">
+            <div class="col-lg-2">
     <% foreach ($groupedFields['number'] as $field) : %>
-                <h6 class="subheader"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
+                <h6 class="small"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
                 <p><?= $this->Number->format($<%= $singularVar %>-><%= $field %>) ?></p>
     <% endforeach; %>
             </div>
     <% endif; %>
     <% if ($groupedFields['date']) : %>
-            <div class="large-2 columns dates end">
+            <div class="col-lg-2">
     <% foreach ($groupedFields['date'] as $field) : %>
-                <h6 class="subheader"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></h6>
+                <h6 class="small"><%= "<%= __('" . Inflector::humanize($field) . "') %>" %></h6>
                 <p><?= h($<%= $singularVar %>-><%= $field %>) ?></p>
     <% endforeach; %>
             </div>
     <% endif; %>
     <% if ($groupedFields['boolean']) : %>
-            <div class="large-2 columns booleans end">
+            <div class="col-lg-2">
     <% foreach ($groupedFields['boolean'] as $field) : %>
-                <h6 class="subheader"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
+                <h6 class="small"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
                 <p><?= $<%= $singularVar %>-><%= $field %> ? __('Yes') : __('No'); ?></p>
     <% endforeach; %>
             </div>
@@ -121,15 +121,14 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
         </div>
     <% if ($groupedFields['text']) : %>
     <% foreach ($groupedFields['text'] as $field) : %>
-        <div class="row texts">
-            <div class="columns large-9">
-                <h6 class="subheader"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
+        <div class="row">
+            <div class="col-lg-9">
+                <h6 class="small"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
                 <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)) ?>
             </div>
         </div>
     <% endforeach; %>
     <% endif; %>
-    </div>
     </div>
 </div>
 
@@ -148,20 +147,22 @@ foreach ($relations as $alias => $details):
 <% foreach ($details['fields'] as $field): %>
             <th><?= __('<%= Inflector::humanize($field) %>') ?></th>
 <% endforeach; %>
-            <th><?= __('Actions') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($<%= $singularVar %>-><%= $details['property'] %> as $<%= $otherSingularVar %>): ?>
         <tr>
             <%- foreach ($details['fields'] as $field): %>
             <td><?= h($<%= $otherSingularVar %>-><%= $field %>) ?></td>
             <%- endforeach; %>
+
             <%- $otherPk = "\${$otherSingularVar}->{$details['primaryKey'][0]}"; %>
-            <td>
+            <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => '<%= $details['controller'] %>', 'action' => 'view', <%= $otherPk %>]) %>
                 <?= $this->Html->link(__('Edit'), ['controller' => '<%= $details['controller'] %>', 'action' => 'edit', <%= $otherPk %>]) %>
                 <?= $this->Form->postLink(__('Delete'), ['controller' => '<%= $details['controller'] %>', 'action' => 'delete', <%= $otherPk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $otherPk %>)]) %>
             </td>
         </tr>
+
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
