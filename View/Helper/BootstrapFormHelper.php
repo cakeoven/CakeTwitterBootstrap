@@ -317,10 +317,10 @@ class BootstrapFormHelper extends FormHelper
     }
 
     /**
-     * Add divs and classes necessary for bootstrap
-     * to end form.
+     * Add divs and classes necessary for bootstrap to end form.
      *
      * @param array $options
+     * @param array $secureAttributes
      * @return string
      */
     public function end($options = null, $secureAttributes = array())
