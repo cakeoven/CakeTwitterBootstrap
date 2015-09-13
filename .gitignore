@@ -1,6 +1,7 @@
 /nbproject
 /nbproject/*
 /nbproject/private/
-/.idea
+.idea
 
 /vendor/
+/composer.lock
