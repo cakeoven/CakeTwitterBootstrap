@@ -1,6 +1,23 @@
-/nbproject
-/nbproject/*
-/nbproject/private/
-/.idea
+# Created by .ignore support plugin (hsz.mobi)
+### CakePHP template
+# CakePHP 3
 
-vendor
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+
+# CakePHP 2
+
+/app/tmp/*
+/app/Config/core.php
+/app/Config/database.php
+/vendors/*
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
