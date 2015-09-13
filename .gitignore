@@ -19,5 +19,6 @@
 # IntelliJ project files
 .idea
 *.iml
+composer.lock
 out
 gen
