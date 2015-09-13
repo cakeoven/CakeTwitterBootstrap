@@ -3,5 +3,5 @@
 /nbproject/private/
 .idea
 
-/vendor/
+/vendor
 /composer.lock
