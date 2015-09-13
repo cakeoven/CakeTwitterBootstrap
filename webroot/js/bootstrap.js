@@ -1,1 +1,1 @@
-webroot/vendor/bootstrap/dist/js/bootstrap.min.js
+../vendor/bootstrap/dist/js/bootstrap.min.js
