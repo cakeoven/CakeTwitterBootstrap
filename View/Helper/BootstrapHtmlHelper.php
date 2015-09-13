@@ -2,7 +2,6 @@
 
 /**
  * Copyright 2014, George Mponos
- *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
@@ -10,7 +9,7 @@
  * @author    George Mponos, <gmponos@gmail.com>
  * @link      http://github.com/gmponos/CakeTwitterBootstrap
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
- * horizontal elements must be created with an option
+ *            horizontal elements must be created with an option
  */
 
 App::uses('HtmlHelper', 'View/Helper');
@@ -25,6 +24,7 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Icon prefix
+     *
      * @var string
      */
     private $iconPrefix = 'fa';
@@ -74,9 +74,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * returns a dl element
      *
      * @param  string $data
-     * @param  array $options
-     * @param  array $dtOpts
-     * @param  array $ddOpts
+     * @param  array  $options
+     * @param  array  $dtOpts
+     * @param  array  $ddOpts
      * @return string
      */
     public function descriptionList($data, $options = array(), $dtOpts = array(), $ddOpts = array())
@@ -102,7 +102,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      *
      * @param  string $text
      * @param  string $size
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function well($text, $size = null, $options = array())
@@ -128,7 +128,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * Creates a paragraph with lead class
      *
      * @param  string $content
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function lead($content, $options = array())
@@ -144,7 +144,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      *
      * @param  string $text
      * @param  string $contextual
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function label($text, $contextual = '', $options = array())
@@ -178,13 +178,10 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Creates an HTML link.
-     *
      * If $url starts with "http://" this is treated as an external link. Else,
      * it is treated as a path to controller/action and parsed with the
      * HtmlHelper::url() method.
-     *
      * If the $url is empty, $title is used instead.
-     *
      * ## `options`
      * - `escape` Set to false to disable escaping of title and attributes.
      * - `escapeTitle` Set to false to disable escaping of title. (Takes precedence over value of `escape`)
@@ -192,10 +189,11 @@ class BootstrapHtmlHelper extends HtmlHelper
      * - `icon` Sets properties to wrap an icon inside the link if it is not an array the value is used for type
      *  - `class` set the class of the icon
      *
-     * @param  string $title The content to be wrapped by <a> tags.
-     * @param  string|array $url Cake-relative URL or array of URL parameters, or external URL (starts with http://)
-     * @param  array $options Array of options and HTML attributes.
-     * @param string $confirmMessage JavaScript confirmation message.
+     * @param  string       $title          The content to be wrapped by <a> tags.
+     * @param  string|array $url            Cake-relative URL or array of URL parameters, or external URL (starts with
+     *                                      http://)
+     * @param  array        $options        Array of options and HTML attributes.
+     * @param string        $confirmMessage JavaScript confirmation message.
      * @return string An `<a />` element.
      */
     public function link($title, $url = null, $options = array(), $confirmMessage = false)
@@ -214,9 +212,9 @@ class BootstrapHtmlHelper extends HtmlHelper
     /**
      * Create a link list item
      *
-     * @param  array $url
+     * @param  array  $url
      * @param  string $title
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function listGroupItemLink($url, $title, $options = array())
@@ -279,14 +277,13 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Creates a button element
-     *
      * ## `options`
      *  - `icon` Sets an icon to wrap inside the button if string you set the type
      *    of the icon
      *   - `class` Sets additional classes for the icon
      *
      * @param  string $text Set the title of the button
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function button($text, $options = array())
@@ -305,7 +302,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * return a badge
      *
      * @param  string $text
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function badge($text, $options = array())
@@ -315,10 +312,9 @@ class BootstrapHtmlHelper extends HtmlHelper
     }
 
     /**
-     *
      * @param string $text
      * @param string $target
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function tab($text, $target, $options = array())
@@ -340,7 +336,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * Returns a well formatted check. Used special for booleans
      *
      * @param  string $value
-     * @param  array $url
+     * @param  array  $url
      * @return string
      */
     public function status($value, $url = array())
@@ -356,7 +352,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @example `<i class="icon icon-search"></i> Text`
      * @param   string $type
      * @param   string $text
-     * @param   array $options
+     * @param   array  $options
      * @return  string
      */
     public function icon($type, $text = '', $options = array())
@@ -378,7 +374,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * This function is used for generating an icon for the functions inside this
      * helper.
      *
-     * @param  string $title
+     * @param  string       $title
      * @param  string|array $options
      * @return string
      */

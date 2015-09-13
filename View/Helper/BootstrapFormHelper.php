@@ -2,7 +2,6 @@
 
 /**
  * Copyright 2014, George Mponos
- *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
@@ -11,13 +10,12 @@
  * @link      http://github.com/gmponos/CakeTwitterBootstrap
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @todo      The functions for the horizontal elements must be removed
- * horizontal elements must be created with an option
+ *            horizontal elements must be created with an option
  */
 App::uses('FormHelper', 'View/Helper');
 
 /**
  * Bootstrap Form Helper
- *
  * A helper to create forms compatibles
  * with the bootstrap front end framework
  */
@@ -25,7 +23,6 @@ class BootstrapFormHelper extends FormHelper
 {
 
     /**
-     *
      * @var bool
      */
     protected $horizontal = false;
@@ -52,7 +49,7 @@ class BootstrapFormHelper extends FormHelper
      * Starts a new form with input defaults.
      *
      * @param string $model
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function create($model = null, $options = array())
@@ -92,7 +89,7 @@ class BootstrapFormHelper extends FormHelper
      * Starts a new form with input defaults for horizontal forms
      *
      * @param string $model
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function createHorizontal($model = null, $options = array())
@@ -131,12 +128,12 @@ class BootstrapFormHelper extends FormHelper
      * Returns a formatted LABEL element for HTML FORMs. Will automatically generate
      * a `for` attribute if one is not provided.
      *
-     * @param string $fieldName This should be "Modelname.fieldname"
-     * @param string $text Text that will appear in the label field. If
-     *   $text is left undefined the text will be inflected from the
-     *   fieldName.
-     * @param array|string $options An array of HTML attributes, or a string, to be used as a class name.
-     * @return string The formatted LABEL element
+     * @param string       $fieldName This should be "Modelname.fieldname"
+     * @param string       $text      Text that will appear in the label field. If
+     *                                $text is left undefined the text will be inflected from the
+     *                                fieldName.
+     * @param array|string $options   An array of HTML attributes, or a string, to be used as a class name.
+     * @return string The formatted label element
      */
     public function label($fieldName = null, $text = null, $options = array())
     {
@@ -150,7 +147,7 @@ class BootstrapFormHelper extends FormHelper
      * input method
      *
      * @param string $fieldName
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function input($fieldName, $options = array())
@@ -183,7 +180,7 @@ class BootstrapFormHelper extends FormHelper
      * file method
      *
      * @param string $fieldName
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function file($fieldName, $options = array())
@@ -201,7 +198,7 @@ class BootstrapFormHelper extends FormHelper
      * datepicker method
      *
      * @param string $fieldName
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function datepicker($fieldName, $options = array())
@@ -218,7 +215,7 @@ class BootstrapFormHelper extends FormHelper
      * Timepicker method
      *
      * @param string $fieldName
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function timepicker($fieldName, $options = array())
@@ -243,7 +240,7 @@ class BootstrapFormHelper extends FormHelper
      * Chosen
      *
      * @param string $fieldName
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function chosen($fieldName, $options = array())
@@ -268,7 +265,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a reset button for a form
      *
      * @param string $title
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function btnReset($title = '', $options = array())
@@ -286,7 +283,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a submit button for a form
      *
      * @param string $title
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function btnSubmit($title = '', $options = array())
@@ -304,7 +301,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a cancel button. Used to dismiss modals
      *
      * @param string $title
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function btnCancel($title = '', $options = array())
