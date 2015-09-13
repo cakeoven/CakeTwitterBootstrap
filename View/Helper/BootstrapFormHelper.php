@@ -323,7 +323,7 @@ class BootstrapFormHelper extends FormHelper
      * @param array $options
      * @return string
      */
-    public function end($options = null)
+    public function end($options = null, $secureAttributes = array())
     {
         if (!empty($options)) {
             if (!is_array($options)) {
@@ -334,7 +334,7 @@ class BootstrapFormHelper extends FormHelper
             );
             $options = array_merge($defaults, $options);
         }
-        return parent::end($options);
+        return parent::end($options, $secureAttributes);
     }
 
 }
