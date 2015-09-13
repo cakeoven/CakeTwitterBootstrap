@@ -5,7 +5,15 @@
     "bootstrap": "*",
     "font-awesome": "*",
     "chosen": "*",
-    "bootstrap-chosen": "master"
+    "bootstrap-chosen": "master",
+    "jquery": "*"
+  },
+  "install": {
+    "path": {
+      "css": "webroot/test/css",
+      "js": "webroot/test/js",
+      "*": "webroot/test"
+    }
   },
   "authors": [
     "George Mponos <gmponos@gmail.com>"
