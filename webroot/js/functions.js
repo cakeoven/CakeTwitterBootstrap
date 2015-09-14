@@ -1,4 +1,4 @@
-/* 
+/**
  * Copyright 2015 gmponos.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,13 +15,7 @@
  */
 
 $(document).on('ready', function () {
-
     $('.form-control-datepicker').datepicker({
         format: "yyyy-mm-dd"
     });
-
-    $('.form-control-datetimepicker').datetimepicker({
-        format: "yyyy-mm-dd"
-    });
-
 });
