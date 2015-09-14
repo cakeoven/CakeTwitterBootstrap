@@ -1,0 +1,19 @@
+.input-group > .chosen-container > a {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.chosen-sm .chosen-container .chosen-single {
+    height: 30px;
+    line-height: 30px;
+}
+
+.chosen-sm .chosen-container-single .chosen-single div b {
+    background: url("../img/chosen-sprite.png") no-repeat scroll 0 6px rgba(0, 0, 0, 0);
+}
+
+.chosen-sm .chosen-container-single .chosen-single abbr {
+    top: 10px;
+}
