@@ -349,7 +349,7 @@ class BootstrapHtmlHelper extends HtmlHelper
     /**
      * Returns an icon element followed by a text
      *
-     * @example `<i class="icon icon-search"></i> Text`
+     * @example `<i class="fa fa-search"></i> Text`
      * @param   string $type
      * @param   string $text
      * @param   array  $options

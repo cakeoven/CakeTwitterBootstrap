@@ -30,7 +30,6 @@ nb-configuration.xml
 # IntelliJ project files
 .idea
 *.iml
-.bowerrc
 composer.phar
 composer.lock
 out
