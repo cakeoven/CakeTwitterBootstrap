@@ -3,36 +3,33 @@ CakeTwitterBootstrap
 
 ## Description
 
-This plugin can be used as a Helper for CakePHP 2.4
-
-CakePHP helpers bootstrap
-CakePHP Helpers for using Twitter bootstrap front end framework.
-
-It also uses chosen.
+CakePHP Helpers for using Twitter bootstrap for CakePHP 2.4
 
 # Requirements
 
+ - jquery
  - Bootstrap 3.x
  - Chosen
  - Font-Awesome
+ - Datepicker - [here](http://www.eyecon.ro/bootstrap-datepicker)
 
 # Usage
 
-``bower update``
+``$ bower update``
 
 Run bower update. This will install all requirements inside a vendor folder on webroot.
 There are symlinks that point to the files required.
 
-``
-public $helpers = [
-    'Form' => [
-        'className' => 'CakeTwitterBootstrap.BootstrapForm'
-    ]
-    'Html' => [
-        'className' => 'CakeTwitterBootstrap.BootstrapHtml'
-    ]
-];
-``
+    ```php
+    public $helpers = [
+        'Form' => [
+            'className' => 'CakeTwitterBootstrap.BootstrapForm'
+        ]
+        'Html' => [
+            'className' => 'CakeTwitterBootstrap.BootstrapHtml'
+        ]
+    ];
+    ```
 ## Links
 
 [Bootstrap](http://getbootstrap.com/)
@@ -66,3 +63,6 @@ SOFTWARE.
 ## Todo
 
 Many things left todo.
+
+ - Add datatables
+ - Remove datepicker and find a suitable datetimepicker
