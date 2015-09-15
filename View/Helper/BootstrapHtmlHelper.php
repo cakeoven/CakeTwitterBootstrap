@@ -193,7 +193,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  string|array $url            Cake-relative URL or array of URL parameters, or external URL (starts with
      *                                      http://)
      * @param  array        $options        Array of options and HTML attributes.
-     * @param string        $confirmMessage JavaScript confirmation message.
+     * @param string|bool   $confirmMessage JavaScript confirmation message.
      * @return string An `<a />` element.
      */
     public function link($title, $url = null, $options = array(), $confirmMessage = false)

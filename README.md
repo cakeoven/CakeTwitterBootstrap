@@ -3,17 +3,36 @@ CakeTwitterBootstrap
 
 ## Description
 
-This plugin can be used as a Helper for CakePHP 2.4 to
+This plugin can be used as a Helper for CakePHP 2.4
 
 CakePHP helpers bootstrap
 CakePHP Helpers for using Twitter bootstrap front end framework.
 
 It also uses chosen.
 
+# Requirements
+
+ - Bootstrap 3.x
+ - Chosen
+ - Font-Awesome
+
 # Usage
 
+``bower update``
 
+Run bower update. This will install all requirements inside a vendor folder on webroot.
+There are symlinks that point to the files required.
 
+``
+public $helpers = [
+    'Form' => [
+        'className' => 'CakeTwitterBootstrap.BootstrapForm'
+    ]
+    'Html' => [
+        'className' => 'CakeTwitterBootstrap.BootstrapHtml'
+    ]
+];
+``
 ## Links
 
 [Bootstrap](http://getbootstrap.com/)
@@ -43,3 +62,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Todo
+
+Many things left todo.
