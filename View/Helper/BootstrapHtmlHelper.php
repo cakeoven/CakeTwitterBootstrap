@@ -147,17 +147,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function label($text, $contextual = '', $options = array())
+    public function label($text, $contextual = '', array $options = [])
     {
         $class = $prefix = 'label';
-        $contextuals = array(
-            'default',
-            'primary',
-            'success',
-            'warning',
-            'danger',
-            'info',
-        );
 
         if (isset($options['icon'])) {
             $content = $this->_icon($text, $options);
@@ -165,7 +157,7 @@ class BootstrapHtmlHelper extends HtmlHelper
         } else {
             $content = $text;
         }
-        if (!empty($contextual) && in_array($contextual, $contextuals)) {
+        if (!empty($contextual)) {
             $class .= " $prefix-$contextual";
         }
         $classes = $class;

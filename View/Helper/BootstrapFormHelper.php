@@ -21,12 +21,6 @@ App::uses('FormHelper', 'View/Helper');
  */
 class BootstrapFormHelper extends FormHelper
 {
-
-    /**
-     * @var bool
-     */
-    protected $horizontal = false;
-
     /**
      * Added an array_merge_recursive for labels to combine $_inputDefaults
      * with specific view markup for labels like custom text.
@@ -81,45 +75,6 @@ class BootstrapFormHelper extends FormHelper
             $options = array_merge_recursive($defaults['inputDefaults'], $options['inputDefaults']);
         } else {
             $options = array_merge_recursive($defaults, $options);
-        }
-        return parent::create($model, $options);
-    }
-
-    /**
-     * Starts a new form with input defaults for horizontal forms
-     *
-     * @param string $model
-     * @param array  $options
-     * @return string
-     */
-    public function createHorizontal($model = null, $options = array())
-    {
-        $defaults = array(
-            'inputDefaults' => array(
-                'div' => array(
-                    'class' => 'form-group'
-                ),
-                'label' => array(
-                    'class' => 'col-lg-3 control-label'
-                ),
-                'between' => '<div class="col-lg-9">',
-                'after' => '</div>',
-                'class' => 'form-control',
-                'error' => array(
-                    'attributes' => array(
-                        'wrap' => 'p',
-                        'class' => 'text-danger'
-                    )
-                ),
-            ),
-            'class' => 'form-horizontal',
-            'role' => 'form',
-        );
-
-        if (!empty($options['inputDefaults'])) {
-            $options = array_merge($defaults['inputDefaults'], $options['inputDefaults']);
-        } else {
-            $options = array_merge($defaults, $options);
         }
         return parent::create($model, $options);
     }
