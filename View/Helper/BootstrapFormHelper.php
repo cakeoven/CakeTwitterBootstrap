@@ -48,9 +48,6 @@ class BootstrapFormHelper extends FormHelper
      */
     public function create($model = null, $options = array())
     {
-        if (isset($options['horizontal']) && $options['horizonta']) {
-            $this->horizontal = true;
-        }
         $defaults = array(
             'inputDefaults' => array(
                 'div' => array(

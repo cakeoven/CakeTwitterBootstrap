@@ -5,7 +5,8 @@
     "bootstrap": "*",
     "font-awesome": "*",
     "chosen": "*",
-    "bootstrap-chosen": "master"
+    "bootstrap-chosen": "master",
+    "clockpicker": "*"
   },
   "authors": [
     "George Mponos <gmponos@gmail.com>"
