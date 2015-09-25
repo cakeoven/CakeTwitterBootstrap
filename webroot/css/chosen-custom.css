@@ -5,6 +5,11 @@
     border-bottom-right-radius: 0px;
 }
 
+.chosen-container-single .chosen-single {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
 .chosen-sm .chosen-container .chosen-single {
     height: 30px;
     line-height: 30px;
