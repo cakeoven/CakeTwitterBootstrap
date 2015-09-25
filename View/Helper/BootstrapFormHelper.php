@@ -225,12 +225,11 @@ class BootstrapFormHelper extends FormHelper
     public function btnReset($title = '', $options = [])
     {
         $title = empty($title) ? __('Reset') : $title;
-        $defaults = [
-            'class' => 'btn btn-success btn-sm',
+        $options = array_merge([
+            'class' => 'btn btn-success',
             'type' => 'reset',
-        ];
-        $options = array_merge($defaults, $options);
-        return parent::button($title, $defaults);
+        ], $options);
+        return parent::button($title, $options);
     }
 
     /**
@@ -243,12 +242,11 @@ class BootstrapFormHelper extends FormHelper
     public function btnSubmit($title = '', $options = [])
     {
         $title = empty($title) ? __('Submit') : $title;
-        $defaults = [
-            'class' => 'btn btn-success btn-sm',
+        $options = array_merge([
+            'class' => 'btn btn-success',
             'type' => 'submit',
-        ];
-        $options = array_merge($defaults, $options);
-        return parent::button($title, $defaults);
+        ], $options);
+        return parent::button($title, $options);
     }
 
     /**
