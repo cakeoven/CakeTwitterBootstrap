@@ -1,1 +1,1 @@
-../vendor/clockpicker/dist/bootstrap-clockpicker.js
+../vendor/clockpicker/src/bootstrap-clockpicker.js
