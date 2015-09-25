@@ -57,6 +57,7 @@ class BootstrapFormHelper extends FormHelper
                     'class' => 'form-group',
                 ],
                 'label' => [
+
                     'class' => 'control-label',
                 ],
                 'class' => 'form-control',
