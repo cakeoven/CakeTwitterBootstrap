@@ -184,9 +184,7 @@ class BootstrapFormHelper extends FormHelper
                 'class' => 'control-label form-control-label',
             ],
             'class' => 'form-control form-control-clockpicker',
-            'type' => 'time',
-            'interval' => 30,
-            'timeFormat' => 24,
+            'type' => 'text',
         ];
 
         return parent::input($fieldName, $options);
