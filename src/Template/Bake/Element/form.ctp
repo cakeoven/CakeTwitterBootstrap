@@ -68,7 +68,7 @@ $fields = collection($fields)
 <%
                 } else {
 %>
-            echo $this->Form->input('<%= $field %>', ['options' => $<%= $keyFields[$field] %>]);
+            echo $this->Form->chosen('<%= $field %>', ['options' => $<%= $keyFields[$field] %>]);
 <%
                 }
                 continue;
@@ -77,7 +77,7 @@ $fields = collection($fields)
                 $fieldData = $schema->column($field);
                 if (($fieldData['type'] === 'date') && (!empty($fieldData['null']))) {
 %>
-            echo $this->Form->input('<%= $field %>', ['empty' => true, 'default' => '']);
+            echo $this->Form->chosen('<%= $field %>', ['empty' => true, 'default' => '']);
 <%
                 } else {
 %>
