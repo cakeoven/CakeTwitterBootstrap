@@ -2,7 +2,6 @@
 
 /**
  * Copyright 2014, George Mponos
- *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
@@ -11,16 +10,16 @@
  * @link      http://github.com/gmponos/CakeTwitterBootstrap
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @todo      The functions for the horizontal elements must be removed
- * horizontal elements must be created with an option
+ *            horizontal elements must be created with an option
  */
 namespace CakeBootstrap\View\Helper;
 
+use Cake\Utility\Hash;
 use Cake\View\Helper\FormHelper;
 use Cake\Utility\Inflector;
 
 /**
  * Bootstrap Form Helper
- *
  * A helper to create forms compatibles
  * with the bootstrap front end framework
  */
@@ -29,6 +28,7 @@ class BootstrapFormHelper extends FormHelper
 
     /**
      * bool
+     *
      * @var bool
      */
     protected $horizontal = false;
@@ -39,16 +39,16 @@ class BootstrapFormHelper extends FormHelper
      * Also removed null array for options existing in $_inputDefaults.
      *
      * @param  string $fieldName
-     * @param  array $options Description
+     * @param  array  $options Description
      * @return array
      */
     protected function _parseOptions($fieldName, $options)
     {
         if (!empty($options['label']) && $options['label']) {
             if (!is_array($options['label'])) {
-                $options['label'] = array('text' => $options['label']);
+                $options['label'] = ['text' => $options['label']];
             }
-            $options['label'] = array_merge_recursive($options['label'], array('class' => 'control-label'));
+            $options['label'] = array_merge_recursive($options['label'], ['class' => 'control-label']);
         }
         return parent::_parseOptions($fieldName, $options);
     }
@@ -57,7 +57,7 @@ class BootstrapFormHelper extends FormHelper
      * Starts a new form with input defaults.
      *
      * @param  string $model
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function create($model = null, array $options = [])
@@ -94,11 +94,11 @@ class BootstrapFormHelper extends FormHelper
      * Returns a formatted LABEL element for HTML FORMs. Will automatically generate
      * a `for` attribute if one is not provided.
      *
-     * @param  string $fieldName This should be "Modelname.fieldname"
-     * @param  string $text Text that will appear in the label field. If $text is left undefined the text will be inflected from the fieldName. $text is left undefined the text will be inflected from the fieldName.
-     *   $text is left undefined the text will be inflected from the
-     *   fieldName.
-     * @param  array|string $options An array of HTML attributes, or a string, to be used as a class name.
+     * @param  string       $fieldName This should be "Modelname.fieldname"
+     * @param  string       $text      Text that will appear in the label field. If $text is left undefined the text will be inflected from the fieldName. $text is left undefined the text will be inflected from the fieldName.
+     *                                 $text is left undefined the text will be inflected from the
+     *                                 fieldName.
+     * @param  array|string $options   An array of HTML attributes, or a string, to be used as a class name.
      * @return string The formatted LABEL element
      */
     public function label($fieldName = null, $text = null, array $options = [])
@@ -113,18 +113,18 @@ class BootstrapFormHelper extends FormHelper
      * input method
      *
      * @param  string $fieldName
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function input($fieldName, array $options = [])
     {
-        $options = [
+        $defaults = [
             'class' => 'form-control',
             'label' => [
-                'class' => 'control-label'
-            ]
+                'class' => 'control-label',
+            ],
         ];
-
+        $options = Hash::merge($defaults, $options);
         if (!isset($options['placeholder'])) {
             $options['placeholder'] = __(Inflector::humanize(Inflector::underscore($fieldName)));
         }
@@ -135,14 +135,14 @@ class BootstrapFormHelper extends FormHelper
      * file method
      *
      * @param  string $fieldName
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function file($fieldName, array $options = [])
     {
         $defaults = [
             'div' => [
-                'class' => 'form-group'
+                'class' => 'form-group',
             ],
         ];
         $options = array_merge($defaults, $options);
@@ -153,14 +153,14 @@ class BootstrapFormHelper extends FormHelper
      * datepicker method
      *
      * @param  string $fieldName
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function datepicker($fieldName, array $options = [])
     {
         $defaults = [
             'class' => 'form-control form-control-datepicker',
-            'type' => 'text'
+            'type' => 'text',
         ];
         $options = array_merge($defaults, $options);
         return parent::input($fieldName, $options);
@@ -170,22 +170,22 @@ class BootstrapFormHelper extends FormHelper
      * Timepicker method
      *
      * @param  string $fieldName
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function timepicker($fieldName, array $options = [])
     {
         $options = [
             'div' => [
-                'class' => 'form-group'
+                'class' => 'form-group',
             ],
             'label' => [
-                'class' => 'control-label form-control-label'
+                'class' => 'control-label form-control-label',
             ],
             'class' => 'form-control form-control-time',
             'type' => 'time',
             'interval' => 30,
-            'timeFormat' => 24
+            'timeFormat' => 24,
         ];
 
         return parent::input($fieldName, $options);
@@ -195,17 +195,17 @@ class BootstrapFormHelper extends FormHelper
      * Chosen
      *
      * @param  string $fieldName
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function chosen($fieldName, array $options = [])
     {
         $defaults = [
             'div' => [
-                'class' => 'form-group'
+                'class' => 'form-group',
             ],
             'class' => 'form-control form-control-chosen',
-            'empty' => true
+            'empty' => true,
         ];
 
         if (isset($options['class'])) {
@@ -220,7 +220,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a reset button for a form
      *
      * @param  string $title
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function btnReset($title = '', array $options = [])
@@ -238,7 +238,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a submit button for a form
      *
      * @param  string $title
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function btnSubmit($title = '', array $options = [])
@@ -256,7 +256,7 @@ class BootstrapFormHelper extends FormHelper
      * Creates a cancel button. Used to dismiss modals
      *
      * @param  string $title
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function btnCancel($title = '', array $options = [])
@@ -266,7 +266,7 @@ class BootstrapFormHelper extends FormHelper
             [
                 'class' => 'btn btn-danger btn-sm',
                 'type' => 'reset',
-                'data-dismiss' => 'modal'
+                'data-dismiss' => 'modal',
             ], $options
         );
         return parent::button($title, $options);
@@ -287,7 +287,7 @@ class BootstrapFormHelper extends FormHelper
                 $options = ['label' => $options];
             }
             $defaults = [
-                'class' => 'btn btn-success'
+                'class' => 'btn btn-success',
             ];
             $options = array_merge($defaults, $options);
         }
