@@ -1,0 +1,14 @@
+{
+    "name": "cake/cake_bootstrap",
+    "description": "A plugin to use transparently bootstrap for Views",
+    "type": "cakephp/plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gmponos",
+            "email": "gmponos@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
