@@ -87,10 +87,10 @@ return !in_array($schema->columnType($field), ['binary', 'text']);
                 $pk = '$' . $singularVar . '->' . $primaryKey[0];
                 %>
                 <td>
-                    <?= $this->Html->link('', ['action' => 'view', <%= $pk %>], ['icon' => ['class' => 'fa fa-search fa-fw']]); ?>
-                    <?= $this->Html->link('', ['action' => 'edit', <%= $pk %>], ['icon' => ['class' => 'fa fa-pencil fa-fw']]); ?>
+                    <?= $this->Html->link('', ['action' => 'view', <%= $pk %>], ['icon' => ['class' => 'fa fa-search fa-fw fa-2x']]); ?>
+                    <?= $this->Html->link('', ['action' => 'edit', <%= $pk %>], ['icon' => ['class' => 'fa fa-pencil fa-fw fa-2x']]); ?>
                     <?= $this->Form->postLink('', ['action' => 'delete', <%= $pk %>], [
-                            'icon' => ['class' => 'fa fa-times fa-fw'],
+                            'icon' => ['class' => 'fa fa-times fa-fw fa-2x text-danger'],
                             'confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)
                         ]);
                     ?>
