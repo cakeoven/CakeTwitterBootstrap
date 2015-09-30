@@ -1,14 +1,24 @@
 {
-    "name": "cake/cake_bootstrap",
-    "description": "A plugin to use transparently bootstrap for Views",
-    "type": "cakephp/plugin",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "gmponos",
-            "email": "gmponos@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+  "name": "cakephp/cakephp_bootstrap",
+  "description": "A CakePHP plugin with helpers for Twitter bootstrap",
+  "type": "cakephp-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "gmponos",
+      "email": "gmponos@gmail.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/gmponos/CakeTwitterBootstrap/issues"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.16"
+  },
+  "require-dev": {
+    "cakephp/cakephp-codesniffer": "2.*",
+    "phpunit/phpunit": "4.1.*"
+  },
+  "prefer-stable": true
 }

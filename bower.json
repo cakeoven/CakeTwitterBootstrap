@@ -1,6 +1,6 @@
 {
   "name": "CakeBootstrap",
-  "description": "CakeBootstrap Helpers for CakePHP 3",
+  "description": "A CakePHP plugin with helpers for Twitter bootstrap",
   "dependencies": {
     "bootstrap": "*",
     "font-awesome": "*",
