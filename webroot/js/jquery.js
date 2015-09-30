@@ -1,1 +1,1 @@
-../vendor/jquery/dist/jquery.min.js
+../vendor/jquery/dist/jquery.js

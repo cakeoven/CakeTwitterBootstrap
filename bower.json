@@ -6,7 +6,8 @@
     "font-awesome": "*",
     "chosen": "*",
     "bootstrap-chosen": "master",
-    "clockpicker": "*"
+    "clockpicker": "*",
+    "fontawesome-iconpicker": "*"
   },
   "authors": [
     "George Mponos <gmponos@gmail.com>"
