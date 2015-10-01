@@ -27,6 +27,7 @@ class BootstrapFormHelper extends FormHelper
      * Also removed null array for options existing in $_inputDefaults.
      *
      * @param array $options Description
+     * @return array
      */
     protected function _parseOptions($options)
     {
@@ -259,13 +260,12 @@ class BootstrapFormHelper extends FormHelper
     public function btnCancel($title = '', $options = [])
     {
         $title = empty($title) ? __('Cancel') : $title;
-        $defaults = [
-            'class' => 'btn btn-danger btn-sm',
+        $options = array_merge([
+            'class' => 'btn btn-danger',
             'type' => 'reset',
             'data-dismiss' => 'modal',
-        ];
-        $options = array_merge($defaults, $options);
-        return parent::button($title, $defaults);
+        ], $options);
+        return parent::button($title, $options);
     }
 
     /**
