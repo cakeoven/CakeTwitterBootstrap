@@ -41,7 +41,7 @@ class BootstrapHtmlHelper extends HtmlHelper
         if (!$this->_isHeader($h)) {
             return false;
         }
-        return parent::tag("div", "<$h>$title</$h>", array("class" => "page-header"));
+        return parent::tag("div", "<$h>$title</$h>", ["class" => "page-header"]);
     }
 
     /**
@@ -53,8 +53,8 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function panelHeader($title, $h = 'h1')
     {
-        $panelTitle = parent::tag($h, $title, array('class' => 'panel-title'));
-        return parent::tag("div", $panelTitle, array('class' => 'panel-heading'));
+        $panelTitle = parent::tag($h, $title, ['class' => 'panel-title']);
+        return parent::tag("div", $panelTitle, ['class' => 'panel-heading']);
     }
 
     /**
@@ -66,8 +66,8 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function modalHeader($title, $h = 'h4')
     {
-        $modalTitle = parent::tag($h, $title, array('class' => 'modal-title'));
-        return parent::tag("div", $modalTitle, array("class" => 'modal-header'));
+        $modalTitle = parent::tag($h, $title, ['class' => 'modal-title']);
+        return parent::tag("div", $modalTitle, ["class" => 'modal-header']);
     }
 
     /**
@@ -79,12 +79,12 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $ddOpts
      * @return string
      */
-    public function descriptionList($data, $options = array(), $dtOpts = array(), $ddOpts = array())
+    public function descriptionList($data, $options = [], $dtOpts = [], $ddOpts = [])
     {
         if (empty($data) || !is_array($data)) {
             return false;
         }
-        $out = array();
+        $out = [];
 
         $dtOptions = parent::_parseAttributes($dtOpts);
         $ddOptions = parent::_parseAttributes($ddOpts);
@@ -105,9 +105,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function well($text, $size = null, $options = array())
+    public function well($text, $size = null, $options = [])
     {
-        $options = array('class' => 'well');
+        $options = ['class' => 'well'];
 
         if (!empty($size)) {
             switch ($size) {
@@ -131,9 +131,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function lead($content, $options = array())
+    public function lead($content, $options = [])
     {
-        $options = array_merge(array('class' => 'lead'), $options);
+        $options = array_merge(['class' => 'lead'], $options);
         return parent::tag('p', $content, $options);
     }
 
@@ -188,7 +188,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param string|bool   $confirmMessage JavaScript confirmation message.
      * @return string An `<a />` element.
      */
-    public function link($title, $url = null, $options = array(), $confirmMessage = false)
+    public function link($title, $url = null, $options = [], $confirmMessage = false)
     {
         if (empty($url)) {
             $url = $title;
@@ -209,15 +209,15 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function listGroupItemLink($url, $title, $options = array())
+    public function listGroupItemLink($url, $title, $options = [])
     {
         $class = 'list-group-item';
         if (isset($options['active']) && $options['active']) {
             $class = "$class active";
         }
-        $defaults = array(
+        $defaults = [
             'class' => $class,
-        );
+        ];
         $text = $this->_generateListGroupText($title);
         $options = array_merge($defaults, $options);
         return $this->link($text, $url, $options);
@@ -230,15 +230,15 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array $options
      * @return string
      */
-    public function listGroupItem($title, $options = array())
+    public function listGroupItem($title, $options = [])
     {
         $class = 'list-group-item';
         if (isset($options['active']) && $options['active']) {
             $class = "$class active";
         }
-        $defaults = array(
+        $defaults = [
             'class' => $class,
-        );
+        ];
         $text = $this->_generateListGroupText($title);
         $options = array_merge($defaults, $options);
         return $this->div('list-group-item', $text, $options);
@@ -256,7 +256,7 @@ class BootstrapHtmlHelper extends HtmlHelper
         if (is_array($title)) {
             $text = '';
             if (!empty($title['header'])) {
-                $text .= $this->tag('h4', $title['header'], array('class' => 'list-group-item-heading'));
+                $text .= $this->tag('h4', $title['header'], ['class' => 'list-group-item-heading']);
             }
             if (!empty($title['text'])) {
                 $text .= $this->para('list-group-item-text', $title['text']);
@@ -278,7 +278,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function button($text, $options = array())
+    public function button($text, $options = [])
     {
         if (isset($options['icon'])) {
             $text = $this->_icon($text, $options);
@@ -297,9 +297,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function badge($text, $options = array())
+    public function badge($text, $options = [])
     {
-        $defaults = array_merge(array('class' => 'badge'), $options);
+        $defaults = array_merge(['class' => 'badge'], $options);
         return parent::tag('span', $text, $defaults);
     }
 
@@ -309,12 +309,12 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param array  $options
      * @return string
      */
-    public function tab($text, $target, $options = array())
+    public function tab($text, $target, $options = [])
     {
-        $defaults = array(
+        $defaults = [
             'data-toggle' => 'tab',
-        );
-        $liOptions = array();
+        ];
+        $liOptions = [];
         if (isset($options['active'])) {
             $liOptions['class'] = 'active';
             unset($options['active']);
@@ -331,11 +331,11 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $url
      * @return string
      */
-    public function status($value, $url = array())
+    public function status($value, $url = [])
     {
         $icon = $value == true ? 'check' : 'times';
         $contextual = $value == true ? 'success' : 'danger';
-        return $this->label('', $contextual, array('icon' => $icon));
+        return $this->label('', $contextual, ['icon' => $icon]);
     }
 
     /**
@@ -347,7 +347,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param   array  $options
      * @return  string
      */
-    public function icon($type, $text = '', $options = array())
+    public function icon($type, $text = '', array $options = [])
     {
         $icon = $this->iconPrefix;
         $class = "$icon $icon-$type";
@@ -369,15 +369,15 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  string       $title
      * @param  string|array $options
      * @return string
+     * todo We need to refactor this function in order to load an array of icon class with no prefix on the class 
      */
-    protected function _icon($title, $options = '')
+    protected function _icon($title, array $options = [])
     {
-        if (empty($options)) {
-            $options = $title;
+        if (empty($options) || !isset($options['icon'])) {
+            return $title;
         }
-        if (is_array($options) && array_key_exists('icon', $options)) {
-            $options = $options['icon'];
-        }
+        $options = $options['icon'];
+
         if (is_array($options)) {
             if (!isset($options['class']) || empty($options['class'])) {
                 return $title;
@@ -402,7 +402,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     protected function _isHeader($tag)
     {
-        if (in_array($tag, array('h1', 'h2', 'h3', 'h4', 'h5', 'h6'))) {
+        if (in_array($tag, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])) {
             return true;
         }
         return false;

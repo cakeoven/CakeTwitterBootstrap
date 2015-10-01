@@ -18,6 +18,8 @@ App::uses('FormHelper', 'View/Helper');
  * Bootstrap Form Helper
  * A helper to create forms compatibles
  * with the bootstrap front end framework
+ *
+ * @property BootstrapHtmlHelper $Html
  */
 class BootstrapFormHelper extends FormHelper
 {
@@ -175,9 +177,9 @@ class BootstrapFormHelper extends FormHelper
      * @param array  $options
      * @return string
      */
-    public function clockpicker($fieldName, $options = [])
+    public function clockpicker($fieldName, array $options = [])
     {
-        $options = [
+        $defaults = [
             'div' => [
                 'class' => 'form-group',
             ],
@@ -187,7 +189,7 @@ class BootstrapFormHelper extends FormHelper
             'class' => 'form-control form-control-clockpicker',
             'type' => 'text',
         ];
-
+        $options = Hash::merge($defaults, $options);
         return parent::input($fieldName, $options);
     }
 
