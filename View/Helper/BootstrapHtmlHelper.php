@@ -138,7 +138,7 @@ class BootstrapHtmlHelper extends HtmlHelper
     }
 
     /**
-     * Creates a Bootstrap label with $messsage and optionally the $type. Any
+     * Creates a Bootstrap label with $message and optionally the $type. Any
      * options that could get passed to HtmlHelper::tag can be passed in the
      * third param.
      *
@@ -363,7 +363,7 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Returns an icon element followed by a text.
-     * This function is used for generating an icon for the functions inside this
+     * This function is used for generating an icon for internal functions inside this
      * helper.
      *
      * @param  string       $title

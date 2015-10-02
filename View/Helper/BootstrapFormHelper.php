@@ -51,9 +51,6 @@ class BootstrapFormHelper extends FormHelper
      */
     public function create($model = null, $options = [])
     {
-        if (isset($options['horizontal']) && $options['horizonta']) {
-            $this->horizontal = true;
-        }
         $defaults = [
             'inputDefaults' => [
                 'div' => [
@@ -75,11 +72,7 @@ class BootstrapFormHelper extends FormHelper
             'role' => 'form',
         ];
 
-        if (!empty($options['inputDefaults'])) {
-            $options = array_merge_recursive($defaults['inputDefaults'], $options['inputDefaults']);
-        } else {
-            $options = array_merge_recursive($defaults, $options);
-        }
+        $options = Hash::merge($defaults, $options);
         return parent::create($model, $options);
     }
 
@@ -111,12 +104,6 @@ class BootstrapFormHelper extends FormHelper
      */
     public function input($fieldName, $options = [])
     {
-        $defaults = [
-            'class' => 'form-control',
-            'label' => [
-                'class' => 'control-label',
-            ],
-        ];
         //** we need to make the input combine with <span class="input-group-addon">@</span>
         if (isset($options['icon'])) {
             $icon = $this->Html->icon($options['icon']);
