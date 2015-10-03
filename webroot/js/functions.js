@@ -7,5 +7,12 @@ $(document).on('ready', function () {
             allow_single_deselect: true
         });
     });
-});
 
+    $('.form-control-datepicker').datepicker({
+        format: "dd-mm-yyyy"
+    });
+
+    $('.form-control-clockpicker').clockpicker({
+        donetext: "Done."
+    });
+});
