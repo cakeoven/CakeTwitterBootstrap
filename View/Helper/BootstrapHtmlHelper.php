@@ -17,7 +17,8 @@ App::uses('HtmlHelper', 'View/Helper');
 /**
  * BootstrapHtml Helper
  *
- * @name BootstrapHtml
+ * @name                         BootstrapHtml
+ * @property BootstrapIconHelper $Icon
  */
 class BootstrapHtmlHelper extends HtmlHelper
 {
@@ -369,7 +370,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  string       $title
      * @param  string|array $options
      * @return string
-     * todo We need to refactor this function in order to load an array of icon class with no prefix on the class 
+     * todo We need to refactor this function in order to load an array of icon class with no prefix on the class
      */
     protected function _icon($title, array $options = [])
     {
@@ -377,10 +378,13 @@ class BootstrapHtmlHelper extends HtmlHelper
             return $title;
         }
         $options = $options['icon'];
-
         if (is_array($options)) {
             if (!isset($options['class']) || empty($options['class'])) {
                 return $title;
+            }
+
+            if (is_array($options['class']) && isset($options['icon'])) {
+                return $this->Icon->icon($options['icon'], $title, $options['class']);
             }
         }
         if (is_string($options)) {
