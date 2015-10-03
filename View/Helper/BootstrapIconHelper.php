@@ -12,16 +12,22 @@
  *            horizontal elements must be created with an option
  */
 
-App::uses('Helper', 'View/Helper');
+App::uses('HtmlHelper', 'View/Helper');
 
 /**
  * BootstrapHtml Helper
  *
- * @name BootstrapHtml
+ * @name BootstrapIcon
  */
-class BootstrapIconHelper extends AppHelper
+class BootstrapIconHelper extends HtmlHelper
 {
-
+    /**
+     * @param        $type
+     * @param        $text
+     * @param array  $classes
+     * @param string $family
+     * @return string
+     */
     public function icon($type, $text, array $classes = [], $family = 'fa')
     {
         $options = [

@@ -31,6 +31,17 @@ class BootstrapHtmlHelper extends HtmlHelper
     private $iconPrefix = 'fa';
 
     /**
+     * Other helpers used by FormHelper
+     *
+     * @var array
+     */
+    public $helpers = [
+        'Icon' => [
+            'className' => 'CakeBootstrap.BootstrapIcon',
+        ],
+    ];
+
+    /**
      * Displays an h1 tag wrapped in a div with the page-header class
      *
      * @param  string $title
