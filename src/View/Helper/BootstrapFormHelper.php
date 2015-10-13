@@ -27,13 +27,6 @@ class BootstrapFormHelper extends FormHelper
 {
 
     /**
-     * bool
-     *
-     * @var bool
-     */
-    protected $horizontal = false;
-
-    /**
      * Added an array_merge_recursive for labels to combine $_inputDefaults
      * with specific view markup for labels like custom text.
      * Also removed null array for options existing in $_inputDefaults.
@@ -83,8 +76,8 @@ class BootstrapFormHelper extends FormHelper
         ];
         $options = array_merge($defaults, $options);
         $this->templates([
-            'datetimeContainer' => '<div class="form-group">{{content}}</div>',
-            'dateWidget' => '<input type="text" name="{{name}}" {{attrs}} class="form-control"/>',
+//            'datetimeContainer' => '<div class="form-group">{{content}}</div>',
+//            'dateWidget' => '<input type="text" name="{{name}}" {{attrs}} class="form-control"/>',
             'inputContainer' => '<div class="form-group {{type}} {{required}}">{{content}}</div>',
         ]);
         return parent::create($model, $options);
@@ -208,11 +201,11 @@ class BootstrapFormHelper extends FormHelper
             'empty' => true,
         ];
 
-        if (isset($options['class'])) {
+        if (isset($options['class']) && is_string($options['class'])) {
             $defaults = parent::addClass($defaults, $options['class']);
             unset($options['class']);
         }
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         return parent::input($fieldName, $options);
     }
 
@@ -231,7 +224,7 @@ class BootstrapFormHelper extends FormHelper
             'type' => 'reset',
         ];
         $options = array_merge($defaults, $options);
-        return parent::button($title, $options);
+        return $this->button($title, $options);
     }
 
     /**
