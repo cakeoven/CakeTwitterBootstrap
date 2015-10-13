@@ -67,9 +67,8 @@ composer.lock
 vendor/
 
 ### ApiGen
+apigen.phar
 /webroot/doc/
 
 ### Custom
-/build
-/dist
 /tags

@@ -27,13 +27,6 @@ class BootstrapFormHelper extends FormHelper
 {
 
     /**
-     * bool
-     *
-     * @var bool
-     */
-    protected $horizontal = false;
-
-    /**
      * Added an array_merge_recursive for labels to combine $_inputDefaults
      * with specific view markup for labels like custom text.
      * Also removed null array for options existing in $_inputDefaults.
