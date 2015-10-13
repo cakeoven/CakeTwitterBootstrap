@@ -1,13 +1,14 @@
 {
   "name": "CakeBootstrap",
-  "description": "CakeBootstrap Helpers for CakePHP 3",
+  "description": "A CakePHP plugin with helpers for Twitter bootstrap",
   "dependencies": {
     "bootstrap": "*",
     "font-awesome": "*",
     "chosen": "*",
     "bootstrap-chosen": "master",
     "jquery": "*",
-    "clockpicker": "*"
+    "clockpicker": "*",
+    "fontawesome-iconpicker": "*"
   },
   "authors": [
     "George Mponos <gmponos@gmail.com>"

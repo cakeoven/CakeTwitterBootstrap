@@ -1,23 +1,16 @@
-CakeTwitterBootstrap
-====================
+# CakeTwitterBootstrap
 
 ## Description
 
-This plugin can be used as a Helper for CakePHP 2.4 to
-
-CakePHP helpers bootstrap
-CakePHP Helpers for using Twitter bootstrap front end framework.
-
+This plugin can be used as a Helper for CakePHP 3.x
 It also uses chosen.
 
-# Usage
-
-
+## Alpha version
+This is still under development and should be consider unstable
 
 ## Links
 
 [Bootstrap](http://getbootstrap.com/)
-
 [Chosen](https://github.com/harvesthq/chosen/)
 
 ## License

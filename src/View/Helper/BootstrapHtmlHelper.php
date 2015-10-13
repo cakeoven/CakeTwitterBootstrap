@@ -2,7 +2,6 @@
 
 /**
  * Copyright 2014, George Mponos
- *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
@@ -10,8 +9,6 @@
  * @author    George Mponos, <gmponos@gmail.com>
  * @link      http://github.com/gmponos/CakeTwitterBootstrap
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
- * @todo      The functions for the horizontal elements must be removed and the
- * horizontal elements must be created with an option
  */
 
 namespace CakeBootstrap\View\Helper;
@@ -28,6 +25,7 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Icon prefix
+     *
      * @var string
      */
     private $iconPrefix = 'fa';
@@ -77,14 +75,14 @@ class BootstrapHtmlHelper extends HtmlHelper
      * returns a dl element
      *
      * @param  string $data
-     * @param  array $options
-     * @param  array $dtOpts
-     * @param  array $ddOpts
+     * @param  array  $options
+     * @param  array  $dtOpts
+     * @param  array  $ddOpts
      * @return string
      */
     public function descriptionList($data, array $options = [], array $dtOpts = [], array $ddOpts = [])
     {
-
+        //todo
     }
 
     /**
@@ -92,7 +90,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      *
      * @param  string $text
      * @param  string $size
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function well($text, $size = null, array $options = [])
@@ -118,7 +116,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * Creates a paragraph with lead class
      *
      * @param  string $content
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function lead($content, array $options = [])
@@ -128,26 +126,18 @@ class BootstrapHtmlHelper extends HtmlHelper
     }
 
     /**
-     * Creates a Bootstrap label with $messsage and optionally the $type. Any
+     * Creates a Bootstrap label with $message and optionally the $type. Any
      * options that could get passed to HtmlHelper::tag can be passed in the
      * third param.
      *
      * @param  string $text
      * @param  string $contextual
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function label($text, $contextual = '', array $options = [])
     {
         $class = $prefix = 'label';
-        $contextuals = [
-            'default',
-            'primary',
-            'success',
-            'warning',
-            'danger',
-            'info',
-        ];
 
         if (isset($options['icon'])) {
             $content = $this->_icon($text, $options);
@@ -155,7 +145,7 @@ class BootstrapHtmlHelper extends HtmlHelper
         } else {
             $content = $text;
         }
-        if (!empty($contextual) && in_array($contextual, $contextuals)) {
+        if (!empty($contextual)) {
             $class .= " $prefix-$contextual";
         }
         $classes = $class;
@@ -168,13 +158,10 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Creates an HTML link.
-     *
      * If $url starts with "http://" this is treated as an external link. Else,
      * it is treated as a path to controller/action and parsed with the
      * HtmlHelper::url() method.
-     *
      * If the $url is empty, $title is used instead.
-     *
      * ## `options`
      * - `escape` Set to false to disable escaping of title and attributes.
      * - `escapeTitle` Set to false to disable escaping of title. (Takes precedence over value of `escape`)
@@ -182,9 +169,9 @@ class BootstrapHtmlHelper extends HtmlHelper
      * - `icon` Sets properties to wrap an icon inside the link if it is not an array the value is used for type
      *  - `class` set the class of the icon
      *
-     * @param  string $title The content to be wrapped by <a> tags.
-     * @param  string|array $url Cake-relative URL or array of URL parameters, or external URL (starts with http://)
-     * @param  array $options Array of options and HTML attributes.
+     * @param  string       $title   The content to be wrapped by <a> tags.
+     * @param  string|array $url     Cake-relative URL or array of URL parameters, or external URL (starts with http://)
+     * @param  array        $options Array of options and HTML attributes.
      * @return string An `<a />` element.
      */
     public function link($title, $url = null, array $options = [])
@@ -203,9 +190,9 @@ class BootstrapHtmlHelper extends HtmlHelper
     /**
      * Create a link list item
      *
-     * @param  array $url
+     * @param  array  $url
      * @param  string $title
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function listGroupItemLink($url, $title, array $options = [])
@@ -214,9 +201,9 @@ class BootstrapHtmlHelper extends HtmlHelper
         if (isset($options['active']) && $options['active']) {
             $class = "$class active";
         }
-        $defaults = array(
+        $defaults = [
             'class' => $class,
-        );
+        ];
         $text = $this->_generateListGroupText($title);
         $options = array_merge($defaults, $options);
         return $this->link($text, $url, $options);
@@ -255,7 +242,7 @@ class BootstrapHtmlHelper extends HtmlHelper
         if (is_array($title)) {
             $text = '';
             if (!empty($title['header'])) {
-                $text .= $this->tag('h4', $title['header'], array('class' => 'list-group-item-heading'));
+                $text .= $this->tag('h4', $title['header'], ['class' => 'list-group-item-heading']);
             }
             if (!empty($title['text'])) {
                 $text .= $this->para('list-group-item-text', $title['text']);
@@ -268,14 +255,13 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Creates a button element
-     *
      * ## `options`
      *  - `icon` Sets an icon to wrap inside the button if string you set the type
      *    of the icon
      *   - `class` Sets additional classes for the icon
      *
      * @param  string $text Set the title of the button
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function button($text, array $options = [])
@@ -294,20 +280,19 @@ class BootstrapHtmlHelper extends HtmlHelper
      * return a badge
      *
      * @param  string $text
-     * @param  array $options
+     * @param  array  $options
      * @return string
      */
     public function badge($text, array $options = [])
     {
-        $defaults = array_merge(array('class' => 'badge'), $options);
+        $defaults = array_merge(['class' => 'badge'], $options);
         return parent::tag('span', $text, $defaults);
     }
 
     /**
-     *
      * @param string $text
      * @param string $target
-     * @param array $options
+     * @param array  $options
      * @return string
      */
     public function tab($text, $target, array $options = [])
@@ -329,23 +314,23 @@ class BootstrapHtmlHelper extends HtmlHelper
      * Returns a well formatted check. Used special for booleans
      *
      * @param  string $value
-     * @param  array $url
+     * @param  array  $url
      * @return string
      */
-    public function status($value, $url = array())
+    public function status($value, $url = [])
     {
         $icon = $value == true ? 'check' : 'times';
         $contextual = $value == true ? 'success' : 'danger';
-        return $this->label('', $contextual, array('icon' => $icon));
+        return $this->label('', $contextual, ['icon' => $icon]);
     }
 
     /**
      * Returns an icon element followed by a text
      *
-     * @example `<i class="icon icon-search"></i> Text`
+     * @example `<i class="fa fa-search"></i> Text`
      * @param   string $type
      * @param   string $text
-     * @param   array $options
+     * @param   array  $options
      * @return  string
      */
     public function icon($type, $text = '', array $options = [])
@@ -364,21 +349,20 @@ class BootstrapHtmlHelper extends HtmlHelper
 
     /**
      * Returns an icon element followed by a text.
-     * This function is used for generating an icon for the functions inside this
+     * This function is used for generating an icon for internal functions inside this
      * helper.
      *
-     * @param  string $title
+     * @param  string       $title
      * @param  string|array $options
      * @return string
      */
-    protected function _icon($title, $options = '')
+    protected function _icon($title, array $options = [])
     {
-        if (empty($options)) {
-            $options = $title;
+        if (empty($options) || !isset($options['icon'])) {
+            return $title;
         }
-        if (is_array($options) && array_key_exists('icon', $options)) {
-            $options = $options['icon'];
-        }
+        $options = $options['icon'];
+
         if (is_array($options)) {
             if (!isset($options['class']) || empty($options['class'])) {
                 return $title;
@@ -389,8 +373,7 @@ class BootstrapHtmlHelper extends HtmlHelper
                 return $title;
             }
             $icon = $this->iconPrefix;
-            $class = "$icon $icon-$options";
-            $options = ['class' => $class];
+            $options = ["class" => "$icon $icon-$options"];
         }
         $tag = parent::tag('i', '', $options);
         return trim($tag . ' ' . $title);
@@ -404,7 +387,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     protected function _isHeader($tag)
     {
-        if (in_array($tag, array('h1', 'h2', 'h3', 'h4', 'h5', 'h6'))) {
+        if (in_array($tag, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])) {
             return true;
         }
         return false;

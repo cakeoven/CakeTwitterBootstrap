@@ -74,7 +74,7 @@ class BootstrapFormHelper extends FormHelper
 //            'class' => null,
             'role' => 'form',
         ];
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         $this->templates([
 //            'datetimeContainer' => '<div class="form-group">{{content}}</div>',
 //            'dateWidget' => '<input type="text" name="{{name}}" {{attrs}} class="form-control"/>',
@@ -255,19 +255,16 @@ class BootstrapFormHelper extends FormHelper
     public function btnCancel($title = '', array $options = [])
     {
         $title = empty($title) ? __('Cancel') : $title;
-        $options = array_merge(
-            [
-                'class' => 'btn btn-danger btn-sm',
-                'type' => 'reset',
-                'data-dismiss' => 'modal',
-            ], $options
-        );
+        $options = array_merge([
+            'class' => 'btn btn-danger',
+            'type' => 'reset',
+            'data-dismiss' => 'modal',
+        ], $options);
         return parent::button($title, $options);
     }
 
     /**
-     * Add divs and classes necessary for bootstrap
-     * to end form.
+     * Add divs and classes necessary for bootstrap to end form.
      *
      * @param  array $secureAttributes
      * @return string
