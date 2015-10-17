@@ -1,17 +1,16 @@
-CakeTwitterBootstrap
-====================
+# CakeTwitterBootstrap
 
 ## Description
 
-CakePHP Helpers for using Twitter bootstrap for CakePHP 2.4
+CakePHP Helpers for using Twitter bootstrap for CakePHP 2.5
 
 # Requirements
 
  - jquery
- - Bootstrap 3.x
- - Chosen
+ - [Bootstrap 3.x](http://getbootstrap.com/)
+ - [Chosen](https://github.com/harvesthq/chosen/)
  - Font-Awesome
- - Datepicker - [here](http://www.eyecon.ro/bootstrap-datepicker)
+ - [Datepicker](http://www.eyecon.ro/bootstrap-datepicker)
 
 # Usage
 
@@ -30,39 +29,26 @@ There are symlinks that point to the files required.
         ]
     ];
     ```
-## Links
 
-[Bootstrap](http://getbootstrap.com/)
+## Change log
 
-[Chosen](https://github.com/harvesthq/chosen/)
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2014 George Mponos
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Todo
 
 Many things left todo.
-
  - Add datatables
  - Remove datepicker and find a suitable datetimepicker
+
+## Credits
+
+- [George Mponos](http://gmponos.webthink.gr)
+- [All Contributors][link-contributors]
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+
+## License
+
+MIT License. See [License](LICENSE.md)
