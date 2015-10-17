@@ -20,5 +20,5 @@ App::uses('FlashHelper', 'View/Helper');
  */
 class BootstrapFlashHelper extends FlashHelper
 {
-    
+
 }
