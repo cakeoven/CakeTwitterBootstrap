@@ -1,20 +1,8 @@
 # Changelog
 
-All Notable changes to `:package_name` will be documented in this file
+All Notable changes to `CakeBootstrap` will be documented in this file
 
-## NEXT - YYYY-MM-DD
+## 2.0.0 - 2015-10-18
 
 ### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+- Initial functionality first tag

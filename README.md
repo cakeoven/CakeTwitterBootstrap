@@ -6,7 +6,8 @@ CakePHP Helpers for using Twitter bootstrap for CakePHP 2.5
 
 # Requirements
 
- - jquery
+ - CakePHP until 2.5.x
+ - jQuery
  - [Bootstrap 3.x](http://getbootstrap.com/)
  - [Chosen](https://github.com/harvesthq/chosen/)
  - Font-Awesome
@@ -17,9 +18,13 @@ CakePHP Helpers for using Twitter bootstrap for CakePHP 2.5
 ``$ bower update``
 
 Run bower update. This will install all requirements inside a vendor folder on webroot.
+All libraries and css files are symlinked to the vendor folders.
+You have to include these files in to your view or your layout
+
+    <?= $this->Html->css('CakeBootstrap.bootstrap'); ?>
+
 There are symlinks that point to the files required.
 
-    ```php
     public $helpers = [
         'Form' => [
             'className' => 'CakeTwitterBootstrap.BootstrapForm'
@@ -28,7 +33,6 @@ There are symlinks that point to the files required.
             'className' => 'CakeTwitterBootstrap.BootstrapHtml'
         ]
     ];
-    ```
 
 ## Change log
 
@@ -39,11 +43,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 Many things left todo.
  - Add datatables
  - Remove datepicker and find a suitable datetimepicker
-
-## Credits
-
-- [George Mponos](http://gmponos.webthink.gr)
-- [All Contributors][link-contributors]
 
 ## Contributing
 
