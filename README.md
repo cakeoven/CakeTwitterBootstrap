@@ -2,11 +2,11 @@
 
 ## Description
 
-CakePHP Helpers for using Twitter bootstrap for CakePHP 2.5
+CakePHP Helpers for using Twitter bootstrap for CakePHP 2.7
 
 # Requirements
 
- - CakePHP until 2.5.x
+ - CakePHP until 2.7.x
  - jQuery
  - [Bootstrap 3.x](http://getbootstrap.com/)
  - [Chosen](https://github.com/harvesthq/chosen/)

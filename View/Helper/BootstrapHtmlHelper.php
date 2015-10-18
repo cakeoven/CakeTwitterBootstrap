@@ -9,7 +9,6 @@
  * @author    George Mponos, <gmponos@gmail.com>
  * @link      http://github.com/gmponos/CakeTwitterBootstrap
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
- *            horizontal elements must be created with an option
  */
 
 App::uses('HtmlHelper', 'View/Helper');
@@ -369,7 +368,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  string       $title
      * @param  string|array $options
      * @return string
-     * todo We need to refactor this function in order to load an array of icon class with no prefix on the class 
+     * todo We need to refactor this function in order to load an array of icon class with no prefix on the class
      */
     protected function _icon($title, array $options = [])
     {

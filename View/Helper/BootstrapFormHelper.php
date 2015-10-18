@@ -9,8 +9,6 @@
  * @author    George Mponos, <gmponos@gmail.com>
  * @link      http://github.com/gmponos/CakeTwitterBootstrap
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
- * @todo      The functions for the horizontal elements must be removed
- *            horizontal elements must be created with an option
  */
 App::uses('FormHelper', 'View/Helper');
 
@@ -23,6 +21,7 @@ App::uses('FormHelper', 'View/Helper');
  */
 class BootstrapFormHelper extends FormHelper
 {
+
     /**
      * Added an array_merge_recursive for labels to combine $_inputDefaults
      * with specific view markup for labels like custom text.
