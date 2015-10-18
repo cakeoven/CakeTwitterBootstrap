@@ -26,37 +26,40 @@ class BootstrapPaginatorHelper extends PaginatorHelper
      */
     public $helpers = ['Html'];
 
-    public function first($first = '«', array $options = [])
+    public function first($first = '«', $options = [])
     {
         $defaults = ['class' => 'first', 'tag' => 'li'];
         $options = Hash::merge($defaults, $options);
         return parent::first($first, $options);
     }
 
-    public function prev($title = '‹', array $options = [], $disabledTitle = null, array $disabledOptions = [])
+    public function prev($title = '‹', $options = [], $disabledTitle = null, $disabledOptions = [])
     {
         $defaults = ['tag' => 'li'];
         $disabledOptions = ['class' => 'prev disabled', 'tag' => 'li', 'disabledTag' => 'a'];
+        $options = Hash::merge($defaults, $options);
         return parent::prev($title, $options, $disabledTitle, $disabledOptions);
     }
 
-    public function numbers(array $options = [])
+    public function numbers($options = [])
     {
         $defaults = ['separator' => '', 'tag' => 'li', 'currentTag' => 'a'];
         $options = Hash::merge($defaults, $options);
         return parent::numbers($options);
     }
 
-    public function next($title = '›', array $options = [], $disabledTitle = null, array $disabledOptions = [])
+    public function next($title = '›', $options = [], $disabledTitle = null, $disabledOptions = [])
     {
         $defaults = ['tag' => 'li'];
-        $disabledOptions = ['class' => 'prev disabled', 'tag' => 'li', 'disabledTag' => 'a'];
+        $disabledOptions = ['class' => 'next disabled', 'tag' => 'li', 'disabledTag' => 'a'];
+        $options = Hash::merge($defaults, $options);
         return parent::next($title, $options, $disabledTitle, $disabledOptions);
     }
 
-    public function last($last = '»', array $options = [])
+    public function last($last = '»', $options = [])
     {
         $defaults = ['class' => 'last', 'tag' => 'li'];
+        $options = Hash::merge($defaults, $options);
         return parent::last($last, $options);
     }
 }
