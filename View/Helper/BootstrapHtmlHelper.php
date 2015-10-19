@@ -103,7 +103,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function well($text, $size = null, $options = [])
+    public function well($text, $size = null, array $options = [])
     {
         $options = ['class' => 'well'];
 
@@ -145,25 +145,20 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @param  array  $options
      * @return string
      */
-    public function label($text, $contextual = '', array $options = [])
+    public function label($text, $contextual, array $options = [])
     {
-        $class = $prefix = 'label';
-
-        if (isset($options['icon'])) {
-            $content = $this->_icon($text, $options);
+        if (isset($options['icon']) && !empty($options['icon'])) {
+            $text = $this->_icon($text, $options['icon']);
             unset($options['icon']);
-        } else {
-            $content = $text;
         }
-        if (!empty($contextual)) {
-            $class .= " $prefix-$contextual";
-        }
-        $classes = $class;
+
+        $classes = "label label-$contextual";
         if (isset($options['class']) && !empty($options['class'])) {
             $classes .= " " . $options['class'];
         }
+
         $options['class'] = $classes;
-        return parent::tag('span', $content, $options);
+        return parent::tag('span', $text, $options);
     }
 
     /**
@@ -191,78 +186,13 @@ class BootstrapHtmlHelper extends HtmlHelper
         if (empty($url)) {
             $url = $title;
         }
-        if (isset($options['icon'])) {
-            $title = $this->_icon($title, $options);
+
+        if (isset($options['icon']) && !empty($options['icon'])) {
+            $title = $this->_icon($title, $options['icon']);
             $options['escape'] = false;
             unset($options['icon']);
         }
         return parent::link($title, $url, $options, $confirmMessage);
-    }
-
-    /**
-     * Create a link list item
-     *
-     * @param  array  $url
-     * @param  string $title
-     * @param  array  $options
-     * @return string
-     */
-    public function listGroupItemLink($url, $title, $options = [])
-    {
-        $class = 'list-group-item';
-        if (isset($options['active']) && $options['active']) {
-            $class = "$class active";
-        }
-        $defaults = [
-            'class' => $class,
-        ];
-        $text = $this->_generateListGroupText($title);
-        $options = array_merge($defaults, $options);
-        return $this->link($text, $url, $options);
-    }
-
-    /**
-     * Create a link list item
-     *
-     * @param  array $title
-     * @param  array $options
-     * @return string
-     */
-    public function listGroupItem($title, $options = [])
-    {
-        $class = 'list-group-item';
-        if (isset($options['active']) && $options['active']) {
-            $class = "$class active";
-        }
-        $defaults = [
-            'class' => $class,
-        ];
-        $text = $this->_generateListGroupText($title);
-        $options = array_merge($defaults, $options);
-        return $this->div('list-group-item', $text, $options);
-    }
-
-    /**
-     * _generateListGroupText
-     * Generates the text for the list group item
-     *
-     * @param  string $title
-     * @return string
-     */
-    protected function _generateListGroupText($title)
-    {
-        if (is_array($title)) {
-            $text = '';
-            if (!empty($title['header'])) {
-                $text .= $this->tag('h4', $title['header'], ['class' => 'list-group-item-heading']);
-            }
-            if (!empty($title['text'])) {
-                $text .= $this->para('list-group-item-text', $title['text']);
-            }
-        } else {
-            $text = $title;
-        }
-        return $text;
     }
 
     /**
@@ -278,14 +208,37 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function button($text, $options = [])
     {
-        if (isset($options['icon'])) {
-            $text = $this->_icon($text, $options);
+        if (isset($options['icon']) && !empty($options['icon'])) {
+            $text = $this->_icon($text, $options['icon']);
             unset($options['icon']);
         }
+
         if (!isset($options['type']) || empty($options['type'])) {
             $options['type'] = 'button';
         }
         return parent::tag('button', $text, $options);
+    }
+
+    /**
+     * @param string $text
+     * @param string $target
+     * @param array  $options
+     * @return string
+     */
+    public function tab($text, $target, $options = [])
+    {
+        $defaults = [
+            'data-toggle' => 'tab',
+            'role' => 'tab',
+            'li' => '',
+        ];
+
+        $options = Hash::merge($defaults, $options);
+        $liOptions = $options['li'];
+        unset($options['li']);
+
+        $link = $this->link($text, $target, $options);
+        return $this->tag('li', $link, $liOptions);
     }
 
     /**
@@ -299,27 +252,6 @@ class BootstrapHtmlHelper extends HtmlHelper
     {
         $defaults = array_merge(['class' => 'badge'], $options);
         return parent::tag('span', $text, $defaults);
-    }
-
-    /**
-     * @param string $text
-     * @param string $target
-     * @param array  $options
-     * @return string
-     */
-    public function tab($text, $target, $options = [])
-    {
-        $defaults = [
-            'data-toggle' => 'tab',
-        ];
-        $liOptions = [];
-        if (isset($options['active'])) {
-            $liOptions['class'] = 'active';
-            unset($options['active']);
-        }
-        $options = array_merge($defaults, $options);
-        $link = $this->link($text, $target, $options);
-        return $this->tag('li', $link, $liOptions);
     }
 
     /**
@@ -369,18 +301,17 @@ class BootstrapHtmlHelper extends HtmlHelper
      * @return string
      * todo We need to refactor this function in order to load an array of icon class with no prefix on the class
      */
-    protected function _icon($title, array $options = [])
+    protected function _icon($title, $options)
     {
-        if (empty($options) || !isset($options['icon'])) {
-            return $title;
-        }
-        $options = $options['icon'];
-
         if (is_array($options)) {
             if (!isset($options['class']) || empty($options['class'])) {
                 return $title;
             }
+
+            $tag = parent::tag('i', '', $options);
+            return trim($tag . ' ' . $title);
         }
+
         if (is_string($options)) {
             if (empty($options)) {
                 return $title;
@@ -388,6 +319,7 @@ class BootstrapHtmlHelper extends HtmlHelper
             $icon = $this->iconPrefix;
             $options = ["class" => "$icon $icon-$options"];
         }
+
         $tag = parent::tag('i', '', $options);
         return trim($tag . ' ' . $title);
     }
