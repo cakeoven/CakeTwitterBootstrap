@@ -2,3 +2,25 @@
 .dropdown-menu {
     z-index: 10000;
 }
+
+.form-control-time {
+    display: inline-block !important;
+    width: auto;
+}
+
+.form-control-label {
+    width: 100%;
+}
+
+.modal-body .nav.nav-tabs {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.modal-body .nav.nav-tabs > li:first-of-type {
+    margin-left: 15px;
+}
+
+.modal-backdrop {
+    z-index: 1031;
+}
