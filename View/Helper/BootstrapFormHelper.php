@@ -135,7 +135,7 @@ class BootstrapFormHelper extends FormHelper
                 'class' => 'form-group',
             ],
         ];
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         return parent::input($fieldName, $options);
     }
 
