@@ -72,28 +72,27 @@ class BootstrapHtmlHelper extends HtmlHelper
     /**
      * returns a dl element
      *
-     * @param  string $data
-     * @param  array  $options
-     * @param  array  $dtOpts
-     * @param  array  $ddOpts
+     * @param  array $data
+     * @param  array $options
+     * @param  bool  $skipEmpty
      * @return string
      */
-    public function descriptionList($data, $options = [], $dtOpts = [], $ddOpts = [])
+    public function descriptionList(array $data, array $options = [], $skipEmpty = false)
     {
-        if (empty($data) || !is_array($data)) {
+        if (empty($data)) {
             return false;
         }
+
         $out = [];
-
-        $dtOptions = parent::_parseAttributes($dtOpts);
-        $ddOptions = parent::_parseAttributes($ddOpts);
-
         foreach ($data as $descr => $value) {
-            $out[] = sprintf($this->_tags['dt'], $dtOptions, $descr);
-            $out[] = sprintf($this->_tags['dd'], $ddOptions, $value);
+            if ($skipEmpty && empty($value)) {
+                continue;
+            }
+            $out[] = parent::tag('dt', $descr);
+            $out[] = parent::tag('dd', $value);
         }
-        $dl = sprintf($this->_tags['dl'], parent::_parseAttributes($options), implode("\n", $out));
-        return $dl;
+
+        return parent::tag('dl', implode("\n", $out), $options);;
     }
 
     /**
