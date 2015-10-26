@@ -1,5 +1,5 @@
 {
-  "name": "cakephp/cakephp_bootstrap",
+  "name": "cakeoven/cakebootstrap",
   "description": "A CakePHP plugin with helpers for Twitter bootstrap",
   "type": "cakephp-plugin",
   "license": "MIT",
