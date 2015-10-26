@@ -5,7 +5,7 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "gmponos",
+      "name": "George Mponos",
       "email": "gmponos@gmail.com"
     }
   ],
@@ -31,5 +31,10 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-3.0": "3.0-dev"
+    }
+  }
 }
