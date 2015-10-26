@@ -2,37 +2,55 @@
 
 ## Description
 
-This plugin can be used as a Helper for CakePHP 3.x
-It also uses chosen.
+CakePHP Helpers for using Twitter bootstrap for CakePHP 3.x
 
-## Alpha version
+## Under development
 This is still under development and should be consider unstable
 
-## Links
+## Requirements
 
-[Bootstrap](http://getbootstrap.com/)
-[Chosen](https://github.com/harvesthq/chosen/)
+ - CakePHP until 3.1.x
+ - jQuery
+ - [Bootstrap 3.x](http://getbootstrap.com/)
+ - [Chosen](https://github.com/harvesthq/chosen/)
+ - Font-Awesome
+ - [Datepicker](http://www.eyecon.ro/bootstrap-datepicker)
+
+## Usage
+
+``$ bower update``
+
+Run bower update. This will install all requirements inside a vendor folder on webroot.
+All libraries and css files are symlinked to the vendor folders.
+You have to include these files in to your view or your layout
+
+    <?= $this->Html->css('CakeBootstrap.bootstrap'); ?>
+
+There are symlinks that point to the files required.
+
+    public $helpers = [
+        'Form' => [
+            'className' => 'CakeTwitterBootstrap.BootstrapForm'
+        ]
+        'Html' => [
+            'className' => 'CakeTwitterBootstrap.BootstrapHtml'
+        ]
+    ];
+
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Todo
+
+Many things left todo.
+ - Add datatables
+ - Remove datepicker and find a suitable datetimepicker
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
 
 ## License
 
-The MIT License (MIT)
-
-Copyright (c) 2014 George Mponos
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+MIT License. See [License](LICENSE.md)
