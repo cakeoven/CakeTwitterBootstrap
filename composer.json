@@ -27,7 +27,8 @@
   },
   "autoload": {
     "psr-4": {
-      "CakeBootstrap\\": "src"
+      "CakeOven\\CakeBootstrap\\": "src",
+      "CakeOven\\CakeBootstrap\\Test\\": "tests"
     }
   },
   "minimum-stability": "dev",

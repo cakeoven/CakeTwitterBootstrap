@@ -11,7 +11,7 @@
  * @license   MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace CakeBootstrap\View\Helper;
+namespace CakeOven\CakeBootstrap\View\Helper;
 
 use Cake\View\Helper\HtmlHelper;
 

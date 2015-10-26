@@ -12,7 +12,7 @@
  * @todo      The functions for the horizontal elements must be removed
  *            horizontal elements must be created with an option
  */
-namespace CakeBootstrap\View\Helper;
+namespace CakeOven\CakeBootstrap\View\Helper;
 
 use Cake\Utility\Hash;
 use Cake\View\Helper\FormHelper;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CakeBootstrap\Controller\Component;
+namespace CakeOven\CakeBootstrap\Controller\Component;
 
 use Cake\Controller\Component\FlashComponent;
 
