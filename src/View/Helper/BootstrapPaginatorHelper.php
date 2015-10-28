@@ -23,14 +23,14 @@ use Cake\View\Helper\PaginatorHelper;
 class BootstrapPaginatorHelper extends PaginatorHelper
 {
 
-    public function first($first = '«', $options = [])
+    public function first($first = '«', array $options = [])
     {
         $defaults = ['class' => 'first', 'tag' => 'li'];
         $options = Hash::merge($defaults, $options);
         return parent::first($first, $options);
     }
 
-    public function prev($title = '‹', $options = [])
+    public function prev($title = '‹', array $options = [])
     {
         $defaults = ['tag' => 'li'];
         $disabledOptions = ['class' => 'prev disabled', 'tag' => 'li', 'disabledTag' => 'a'];
@@ -38,22 +38,22 @@ class BootstrapPaginatorHelper extends PaginatorHelper
         return parent::prev($title, $options);
     }
 
-    public function numbers($options = [])
+    public function numbers(array $options = [])
     {
         $defaults = ['separator' => '', 'tag' => 'li', 'currentTag' => 'a'];
         $options = Hash::merge($defaults, $options);
         return parent::numbers($options);
     }
 
-    public function next($title = '›', $options = [])
+    public function next($title = '›', array $options = [])
     {
         $defaults = ['tag' => 'li'];
         $disabledOptions = ['class' => 'next disabled', 'tag' => 'li', 'disabledTag' => 'a'];
-        $options = Hash::merge($defaults, $options);
+        $options = Hash::merge($defaults, array $options);
         return parent::next($title, $options);
     }
 
-    public function last($last = '»', $options = [])
+    public function last($last = '»', array $options = [])
     {
         $defaults = ['class' => 'last', 'tag' => 'li'];
         $options = Hash::merge($defaults, $options);
