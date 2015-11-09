@@ -9,7 +9,7 @@ $(document).on('ready', function () {
     });
 
     $('.form-control-datepicker').datepicker({
-        format: "dd-mm-yyyy"
+        format: "yyyy-mm-dd"
     });
 
     $('.form-control-clockpicker').clockpicker({
