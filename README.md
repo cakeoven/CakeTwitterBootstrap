@@ -36,21 +36,3 @@ There are symlinks that point to the files required.
             'className' => 'CakeTwitterBootstrap.BootstrapHtml'
         ]
     ];
-
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Todo
-
-Many things left todo.
- - Add datatables
- - Remove datepicker and find a suitable datetimepicker
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
-
-## License
-
-MIT License. See [License](LICENSE.md)
