@@ -33,7 +33,6 @@ class BootstrapPaginatorHelper extends PaginatorHelper
     public function prev($title = '‹', array $options = [])
     {
         $defaults = ['tag' => 'li'];
-        $disabledOptions = ['class' => 'prev disabled', 'tag' => 'li', 'disabledTag' => 'a'];
         $options = Hash::merge($defaults, $options);
         return parent::prev($title, $options);
     }
@@ -48,7 +47,6 @@ class BootstrapPaginatorHelper extends PaginatorHelper
     public function next($title = '›', array $options = [])
     {
         $defaults = ['tag' => 'li'];
-        $disabledOptions = ['class' => 'next disabled', 'tag' => 'li', 'disabledTag' => 'a'];
         $options = Hash::merge($defaults, $options);
         return parent::next($title, $options);
     }
