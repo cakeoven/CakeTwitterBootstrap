@@ -27,7 +27,7 @@ class BootstrapFormHelper extends FormHelper
 {
 
     /**
-     * Added an array_merge_recursive for labels to combine $_inputDefaults
+     * Added a Hash::merge for labels to combine $_inputDefaults
      * with specific view markup for labels like custom text.
      * Also removed null array for options existing in $_inputDefaults.
      *
@@ -41,7 +41,7 @@ class BootstrapFormHelper extends FormHelper
             if (!is_array($options['label'])) {
                 $options['label'] = ['text' => $options['label']];
             }
-            $options['label'] = array_merge_recursive($options['label'], ['class' => 'control-label']);
+            $options['label'] = Hash::merge($options['label'], ['class' => 'control-label']);
         }
         return parent::_parseOptions($fieldName, $options);
     }
@@ -88,7 +88,9 @@ class BootstrapFormHelper extends FormHelper
      * a `for` attribute if one is not provided.
      *
      * @param  string       $fieldName This should be "Modelname.fieldname"
-     * @param  string       $text      Text that will appear in the label field. If $text is left undefined the text will be inflected from the fieldName. $text is left undefined the text will be inflected from the fieldName.
+     * @param  string       $text      Text that will appear in the label field. If $text is left undefined the text
+     *                                 will be inflected from the fieldName. $text is left undefined the text will be
+     *                                 inflected from the fieldName.
      *                                 $text is left undefined the text will be inflected from the
      *                                 fieldName.
      * @param  array|string $options   An array of HTML attributes, or a string, to be used as a class name.
@@ -138,7 +140,7 @@ class BootstrapFormHelper extends FormHelper
                 'class' => 'form-group',
             ],
         ];
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         return parent::input($fieldName, $options);
     }
 
@@ -155,7 +157,7 @@ class BootstrapFormHelper extends FormHelper
             'class' => 'form-control form-control-datepicker',
             'type' => 'text',
         ];
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         return parent::input($fieldName, $options);
     }
 
@@ -223,7 +225,7 @@ class BootstrapFormHelper extends FormHelper
             'class' => 'btn btn-success btn-sm',
             'type' => 'reset',
         ];
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         return $this->button($title, $options);
     }
 
@@ -237,7 +239,7 @@ class BootstrapFormHelper extends FormHelper
     public function btnSubmit($title = '', array $options = [])
     {
         $title = empty($title) ? __('Submit') : $title;
-        $options = array_merge([
+        $options = Hash::merge([
             'class' => 'btn btn-success btn-sm',
             'type' => 'submit',
         ], $options
@@ -255,7 +257,7 @@ class BootstrapFormHelper extends FormHelper
     public function btnCancel($title = '', array $options = [])
     {
         $title = empty($title) ? __('Cancel') : $title;
-        $options = array_merge([
+        $options = Hash::merge([
             'class' => 'btn btn-danger',
             'type' => 'reset',
             'data-dismiss' => 'modal',
@@ -279,7 +281,7 @@ class BootstrapFormHelper extends FormHelper
             $defaults = [
                 'class' => 'btn btn-success',
             ];
-            $options = array_merge($defaults, $options);
+            $options = Hash::merge($defaults, $options);
         }
         return parent::end($options);
     }
