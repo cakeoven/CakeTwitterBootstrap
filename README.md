@@ -28,11 +28,42 @@ You have to include these files in to your view or your layout
 
 There are symlinks that point to the files required.
 
-    public $helpers = [
-        'Form' => [
-            'className' => 'CakeTwitterBootstrap.BootstrapForm'
-        ]
-        'Html' => [
-            'className' => 'CakeTwitterBootstrap.BootstrapHtml'
-        ]
-    ];
+class AppView extends View
+{
+
+    /**
+     * Initialization hook method.
+     * For e.g. use this method to load a helper for all views:
+     * `$this->loadHelper('Html');`
+     *
+     * @return void
+     */
+    public function initialize()
+    {
+        $this->loadHelper('Html', [
+            'className' => 'CakeBootstrap.BootstrapHtml',
+        ]);
+
+        $this->loadHelper('Form', [
+            'className' => 'CakeBootstrap.BootstrapForm',
+        ]);
+    }
+}
+
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Todo
+
+Many things left todo.
+ - Add datatables
+ - Remove datepicker and find a suitable datetimepicker
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+
+## License
+
+MIT License. See [License](LICENSE.md)

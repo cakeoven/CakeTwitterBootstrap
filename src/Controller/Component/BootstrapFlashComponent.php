@@ -13,7 +13,10 @@ use Cake\Controller\Component\FlashComponent;
  */
 class BootstrapFlashComponent extends FlashComponent
 {
+
     /**
+     * Magic function call
+     *
      * @param string $name Element name to use.
      * @param array  $args Parameters to pass when calling `FlashComponent::set()`.
      * @return void

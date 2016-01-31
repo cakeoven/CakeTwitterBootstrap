@@ -13,6 +13,7 @@
 
 namespace CakeBootstrap\View\Helper;
 
+use Cake\Utility\Hash;
 use Cake\View\Helper\HtmlHelper;
 
 /**
@@ -121,7 +122,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function lead($content, array $options = [])
     {
-        $options = array_merge(['class' => 'lead'], $options);
+        $options = Hash::merge(['class' => 'lead'], $options);
         return parent::tag('p', $content, $options);
     }
 
@@ -226,7 +227,7 @@ class BootstrapHtmlHelper extends HtmlHelper
             'class' => $class,
         ];
         $text = $this->_generateListGroupText($title);
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         return $this->div('list-group-item', $text, $options);
     }
 
@@ -285,7 +286,7 @@ class BootstrapHtmlHelper extends HtmlHelper
      */
     public function badge($text, array $options = [])
     {
-        $defaults = array_merge(['class' => 'badge'], $options);
+        $defaults = Hash::merge(['class' => 'badge'], $options);
         return parent::tag('span', $text, $defaults);
     }
 
