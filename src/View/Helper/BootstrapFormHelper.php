@@ -170,7 +170,7 @@ class BootstrapFormHelper extends FormHelper
      */
     public function timepicker($fieldName, array $options = [])
     {
-        $options = [
+        $defaults = [
             'div' => [
                 'class' => 'form-group',
             ],
@@ -182,7 +182,7 @@ class BootstrapFormHelper extends FormHelper
             'interval' => 30,
             'timeFormat' => 24,
         ];
-
+        $options = Hash::merge($defaults, $options);
         return parent::input($fieldName, $options);
     }
 
