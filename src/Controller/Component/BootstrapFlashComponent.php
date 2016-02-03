@@ -17,6 +17,7 @@ class BootstrapFlashComponent extends FlashComponent
     /**
      * Magic function call
      *
+     * @todo review if this is needed or the bug from CakePHP is fixed
      * @param string $name Element name to use.
      * @param array  $args Parameters to pass when calling `FlashComponent::set()`.
      * @return void
