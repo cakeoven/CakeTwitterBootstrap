@@ -306,7 +306,7 @@ class BootstrapHtmlHelper extends HtmlHelper
             $liOptions['class'] = 'active';
             unset($options['active']);
         }
-        $options = array_merge($defaults, $options);
+        $options = Hash::merge($defaults, $options);
         $link = $this->link($text, $target, $options);
         return $this->tag('li', $link, $liOptions);
     }
