@@ -15,6 +15,23 @@ class BootstrapFlashComponent extends FlashComponent
 {
 
     /**
+     * @inheritdoc
+     */
+    public function set($message, array $options = [])
+    {
+        if (!isset($options['element'])) {
+            return parent::set($message, $options);
+        }
+
+        list($plugin, $element) = pluginSplit($options['element']);
+        if (!$plugin) {
+            $options['element'] = "CakeBootstrap.$element";
+        }
+
+        return parent::set($message, $options);
+    }
+
+    /**
      * Magic function call
      *
      * @todo review if this is needed or the bug from CakePHP is fixed
