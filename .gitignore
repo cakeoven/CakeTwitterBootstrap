@@ -1,4 +1,4 @@
-### Windows 
+### Windows
 ## Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -61,7 +61,7 @@ nb-configuration.xml
 /tmp/*
 /logs/*
 
-### Composer 
+### Composer
 composer.phar
 composer.lock
 vendor/
@@ -72,3 +72,6 @@ apigen.phar
 
 ### Custom
 /tags
+
+node_modules
+bower_components
