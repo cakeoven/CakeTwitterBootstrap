@@ -1,20 +1,14 @@
 # Changelog
 
-All Notable changes to `:package_name` will be documented in this file
+All Notable changes to `CakeBootstrap` will be documented in this file
 
-## NEXT - YYYY-MM-DD
+## 3.1.0 - 2016-04-16
 
 ### Added
-- Nothing
+- The FlashComponent is now rendering only elements from inside the plugin
+- The bower components were inside webroot and were committed. Removed and added gulp to handle the dependencies.
 
-### Deprecated
-- Nothing
+## 3.0.0 - 2016-01-01
 
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+### Added
+- The initial functionality
