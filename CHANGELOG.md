@@ -2,6 +2,11 @@
 
 All Notable changes to `CakeBootstrap` will be documented in this file
 
+## 3.1.1 - 2016-04-16
+
+### Changed
+- Updated external libraries
+
 ## 3.1.0 - 2016-04-16
 
 ### Added

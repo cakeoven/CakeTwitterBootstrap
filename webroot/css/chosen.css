@@ -344,8 +344,7 @@
     background-repeat: no-repeat !important; } }
 
 /*# sourceMappingURL=bootstrap-chosen.css.map */
-ing: 4px 5px 4px 20px;
-  background: white url('chosen-sprite.png') no-repeat -30px -20px;
+background: white url('chosen-sprite.png') no-repeat -30px -20px;
   background: url('chosen-sprite.png') no-repeat -30px -20px;
   direction: rtl;
 }
