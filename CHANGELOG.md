@@ -2,6 +2,12 @@
 
 All Notable changes to `CakeBootstrap` will be documented in this file
 
+## 3.1.2 - 2016-04-16
+
+### Changed
+- Fixed the CSS class of flash error element.
+- Added more magic functions.
+
 ## 3.1.1 - 2016-04-16
 
 ### Changed

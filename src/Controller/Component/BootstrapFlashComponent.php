@@ -9,6 +9,9 @@ use Cake\Controller\Component\FlashComponent;
  *
  * @package CakeBootstrap\Controller\Component
  * @method success($message, array $options = [])
+ * @method info($message, array $options = [])
+ * @method warning($message, array $options = [])
+ * @method danger($message, array $options = [])
  * @method error($message, array $options = [])
  */
 class BootstrapFlashComponent extends FlashComponent
@@ -25,7 +28,7 @@ class BootstrapFlashComponent extends FlashComponent
 
         list($plugin, $element) = pluginSplit($options['element']);
         if (!$plugin) {
-            $options['element'] = "CakeBootstrap.$element";
+            $options['element'] = sprintf('CakeBootstrap.%s', $element);
         }
 
         return parent::set($message, $options);
@@ -42,7 +45,7 @@ class BootstrapFlashComponent extends FlashComponent
     public function __call($name, $args)
     {
         if (!isset($args[1]['plugin']) || empty($args[1]['plugin'])) {
-            $args[1]['plugin'] = "CakeBootstrap";
+            $args[1]['plugin'] = 'CakeBootstrap';
         }
 
         parent::__call($name, $args);
